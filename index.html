@@ -12,60 +12,68 @@
 </head>
 
 <body>
-  <main id="app">
+  <main id="app" x-data="app" x-show="loading">
     <h1>Title</h1>
     <img src="/javascript.jpg" alt="today code" width="640" />
-
-    <div x-data="{
-        search: '',
-        selectedItemId:null,
-        items: ['javascript', 'typescript', 'C', 'ABAP', 'Ruby','.lua', 'C#', 'ASP'],
- 
-        get filteredItems() {
-            return this.items.filter(
-                i => i.toLowerCase().includes(this.search.toLowerCase())
-            )
-        },
-
-        selectItem(item) {
-          this.selectedItemId = item;
-          // Perform the POST request here
-          this.postToApi(item);
-        },
-
-        postToApi(item) {
-          // Replace 'your-api-endpoint' with the actual API endpoint
-          fetch('your-api-endpoint', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-              // Add any other headers as needed
-            },
-            body: JSON.stringify({ selected_item: item }),
-          })
-          .then(response => response.json())
-          .then(data => {
-            // Handle the API response if needed
-            console.log(data);
-          })
-          .catch(error => {
-            // Handle errors
-            console.error('Error:', error);
-          });
-        },
-
-
-    }">
-      <input type="text" @input="filteredItems" placeholder="search ..." x-model="search">
+    <div>
+      <input type="text" @input="filteredLanguages" placeholder="search ..." x-model="search">
 
       <ul class="search-container" x-show="search.length > 0" x-transition>
-        <template x-for="item in filteredItems" :key="item"> 
-          <li x-text="item" x-on:click="selectItem(item)"></li>
-          </template>
+        <template x-for="language in filteredLanguages" :key="language">
+          <li x-text="language" x-on:click="selectLanguage(language)"></li>
+        </template>
       </ul>
 
     </div>
   </main>
 </body>
+<script>
+
+  document.addEventListener('alpine:init', () => {
+    Alpine.data('app', () => ({
+      search: '',
+      selectedLanguageId: null,
+      languageList: [],
+      loading: false,
+      init() {
+        fetch('http://localhost:3000/')
+          .then(response => response.json())
+          .then(data => {
+            this.languageList = data.languages
+            this.loading = true;
+          })
+          .catch(error => {
+            console.error('Error fetching data:', error);
+          });
+      },
+
+      get filteredLanguages() {
+        return this.languageList.filter(i => i.toLowerCase().includes(this.search.toLowerCase()));
+      },
+
+      selectLanguage(language) {
+        this.selectedLanguageId = language;
+        this.postToApi(language);
+      },
+
+      postToApi(item) {
+        fetch('your-api-endpoint', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ selected_item: item }),
+        })
+          .then(response => response.json())
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.error('Error:', error);
+          });
+      },
+    }))
+  })
+</script>
 
 </html>
