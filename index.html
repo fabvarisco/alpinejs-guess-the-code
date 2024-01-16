@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./src/style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <title>Guess the Code</title>
+</head>
+
+<body>
+  <main id="app">
+    <h1>Title</h1>
+    <img src="/javascript.jpg" alt="today code" width="640" />
+
+    <div x-data="{
+        search: '',
+        selectedItemId:null,
+        items: ['javascript', 'typescript', 'C', 'ABAP', 'Ruby','.lua', 'C#', 'ASP'],
+ 
+        get filteredItems() {
+            return this.items.filter(
+                i => i.toLowerCase().includes(this.search.toLowerCase())
+            )
+        },
+
+        selectItem(item) {
+          this.selectedItemId = item;
+          // Perform the POST request here
+          this.postToApi(item);
+        },
+
+        postToApi(item) {
+          // Replace 'your-api-endpoint' with the actual API endpoint
+          fetch('your-api-endpoint', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              // Add any other headers as needed
+            },
+            body: JSON.stringify({ selected_item: item }),
+          })
+          .then(response => response.json())
+          .then(data => {
+            // Handle the API response if needed
+            console.log(data);
+          })
+          .catch(error => {
+            // Handle errors
+            console.error('Error:', error);
+          });
+        },
+
+
+    }">
+      <input type="text" @input="filteredItems" placeholder="search ..." x-model="search">
+
+      <ul class="search-container" x-show="search.length > 0" x-transition>
+        <template x-for="item in filteredItems" :key="item"> 
+          <li x-text="item" x-on:click="selectItem(item)"></li>
+          </template>
+      </ul>
+
+    </div>
+  </main>
+</body>
+
+</html>

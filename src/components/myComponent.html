@@ -1,0 +1,22 @@
+
+<template id="my-web-component-template">
+  <div x-data="{ count: 0 }">
+      <button @click="count++">Increment</button>
+      <p>Count: <span x-text="count"></span></p>
+  </div>
+</template>
+
+<script>
+  class MyWebComponent extends HTMLElement {
+      constructor() {
+          super();
+
+          const template = document.getElementById('my-web-component-template');
+          const content = template.content.cloneNode(true);
+
+          this.attachShadow({ mode: 'open' }).appendChild(content);
+      }
+  }
+
+  customElements.define('my-web-component', MyWebComponent);
+</script>
