@@ -6,18 +6,20 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./src/style.css">
+  <link rel="stylesheet" href="./libs/prism.css">
   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   <title>Guess the Code</title>
 </head>
 
 <body>
-  <main id="app" x-data="app" x-show="loading">
+  <main id="app" x-data="app" x-show="!loading" x-transition>
     <h1>Title</h1>
-    <img src="/javascript.jpg" alt="today code" width="640" />
+    <pre>
+      <code class="language-markup" x-text="helloWorld"></code>
+    </pre>
     <div>
       <input type="text" @input="filteredLanguages" placeholder="search ..." x-model="search">
-
       <ul class="search-container" x-show="search.length > 0" x-transition>
         <template x-for="language in filteredLanguages" :key="language">
           <li x-text="language" x-on:click="selectLanguage(language)"></li>
@@ -26,6 +28,7 @@
 
     </div>
   </main>
+  <script src="./libs/prism.js"></script>
 </body>
 <script>
 
@@ -33,18 +36,19 @@
     Alpine.data('app', () => ({
       search: '',
       selectedLanguageId: null,
+      helloWorld: "",
       languageList: [],
-      loading: false,
+      loading: true,
       init() {
         fetch('http://localhost:3000/')
           .then(response => response.json())
           .then(data => {
             this.languageList = data.languages
-            this.loading = true;
+            this.helloWorld = data.helloWorld;
           })
           .catch(error => {
             console.error('Error fetching data:', error);
-          });
+          }).finally(() => this.loading = false);
       },
 
       get filteredLanguages() {
@@ -72,8 +76,15 @@
             console.error('Error:', error);
           });
       },
-    }))
+    })),
+      Alpine.store('wonFirstChallenge', {
+        showModal: false,
+        init() {
+
+        },
+      })
   })
 </script>
+
 
 </html>
