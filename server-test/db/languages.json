@@ -1,0 +1,44 @@
+{
+    "programming_languages": [
+      {
+        "name": "Python",
+        "hello_world": "print('Hello, World!')"
+      },
+      {
+        "name": "JavaScript",
+        "hello_world": "console.log('Hello, World!');"
+      },
+      {
+        "name": "Java",
+        "hello_world": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println('Hello, World!');\n    }\n}"
+      },
+      {
+        "name": "C++",
+        "hello_world": "#include <iostream>\n\nint main() {\n    std::cout << 'Hello, World!' << std::endl;\n    return 0;\n}"
+      },
+      {
+        "name": "Ruby",
+        "hello_world": "puts 'Hello, World!'"
+      },
+      {
+        "name": "Swift",
+        "hello_world": "print('Hello, World!')"
+      },
+      {
+        "name": "C#",
+        "hello_world": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine('Hello, World!');\n    }\n}"
+      },
+      {
+        "name": "Go",
+        "hello_world": "package main\n\nimport 'fmt'\n\nfunc main() {\n    fmt.Println('Hello, World!')\n}"
+      },
+      {
+        "name": "PHP",
+        "hello_world": "<?php\n\necho 'Hello, World!';\n?>"
+      },
+      {
+        "name": "Rust",
+        "hello_world": "fn main() {\n    println!('Hello, World!');\n}"
+      }
+    ]
+  }
