@@ -21,9 +21,9 @@ app.get('/', (req, res) => {
 app.post('/selectedLanguage', (req, res) => {
   const { selectedLanguage } = req.body;
   if (selectedLanguage.toLowerCase() === dailyChallenge.language.toLowerCase()) {
-    res.status(200).json({ "pass": true, status: 200 });
-  }else{
-    res.status(200).json({ "pass": false, status: 200 });
+    res.status(200).json({ "pass": true, status: 200, language: selectedLanguage });
+  } else {
+    res.status(200).json({ "pass": false, status: 200, language: selectedLanguage });
   }
 });
 

@@ -10,5 +10,9 @@
   },
   "devDependencies": {
     "vite": "^5.0.8"
+  },
+  "dependencies": {
+    "alpinejs": "^3.13.7",
+    "alpinejs-i18n": "^2.4.2"
   }
 }

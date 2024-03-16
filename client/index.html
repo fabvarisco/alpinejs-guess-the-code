@@ -8,8 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="./src/style.css">
   <link rel="stylesheet" href="./libs/prism.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+  <script type="module" src="./src/main.js"></script>
   <style>
     .img-logo {
       transform: rotateZ(45deg) scale(-1.5, -1);
@@ -17,12 +16,10 @@
     }
 
     .img-logo-container {
-      overflow: hidden; 
+      overflow: hidden;
       height: 50%;
-       width: 50%;
+      width: 50%;
     }
-
-
   </style>
 
 
@@ -30,95 +27,18 @@
 </head>
 
 <body>
-  <main id="app" x-data="app" x-show="!loading" x-transition>
-    <section x-show="!$store.wonFirstChallenge.won" x-transition>
-      <h1>Title</h1>
-      <pre>
-      <code class="language-js" >console.log('Hello, World!');</code>
-    </pre>
-      <div>
-        <input type="text" @input="filteredLanguages" placeholder="search ..." x-model="search">
-        <ul class="search-container" x-show="search.length > 0" x-transition>
-          <template x-for="language in filteredLanguages" :key="language">
-            <li x-text="language" x-on:click="selectLanguage(language)"></li>
-          </template>
-        </ul>
-
-      </div>
-    </section>
-    <section>
-      <div class="img-logo-container">
-        <img class="img-logo" src="./logos/vue.png">
-      </div>
-    </section>
-    <section x-show="$store.wonFirstChallenge.won" x-transition>
-      CONGRATULATIONS
-    </section>
+  <main id="app">
+    <h1>Title</h1>
+    <div>
+      <a href="./src/classic.html">Classic Mode</a>
+      <span></span>
+    </div>
+    <div>
+      <a href="./src/logo.html">Language Logo</a>
+      <span></span>
+    </div>
   </main>
-  <script src="./libs/prism.js"></script>
 </body>
-<script>
-
-  document.addEventListener('alpine:init', () => {
-    Alpine.data('app', () => ({
-      search: '',
-      selectedLanguageId: null,
-      helloWorld: "",
-      languageList: [],
-      loading: true,
-      winner: false,
-      init() {
-        fetch('http://localhost:3000/')
-          .then(response => response.json())
-          .then(data => {
-            this.languageList = data.languages
-            this.helloWorld = data.helloWorld;
-          })
-          .catch(error => {
-            console.error('Error fetching data:', error);
-          }).finally(() => this.loading = false);
-      },
-
-      get filteredLanguages() {
-        return this.languageList.filter(i => i.toLowerCase().includes(this.search.toLowerCase()));
-      },
-
-      selectLanguage(language) {
-        this.selectedLanguageId = language;
-        console.log(language)
-        this.postToApi(language);
-      },
-
-      postToApi(language) {
-        console.log(language)
-        fetch('http://localhost:3000/selectedLanguage', {
-          method: 'POST',
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ "selectedLanguage": language }),
-        })
-          .then(response => response.json())
-          .then(data => {
-            console.log('Error:', data.pass);
-            if (data.pass === true) {
-              this.$store.wonFirstChallenge.won = true;
-            }
-          })
-          .catch(error => {
-            console.error('Error:', error);
-          });
-      },
-    })),
-      Alpine.store('wonFirstChallenge', {
-        won: false,
-        showModal: false,
-        init() {
-
-        },
-      })
-  })
-</script>
 
 
 </html>

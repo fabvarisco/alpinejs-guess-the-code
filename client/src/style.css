@@ -33,7 +33,7 @@ h1 {
   line-height: 1.1;
 }
 
-#app {
+main {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -62,7 +62,7 @@ button:focus-visible {
 ul {
   list-style-type: none;
 }
-li:hover {
+#search-container > li:hover {
   cursor: pointer;
   background-color: aqua;
 }
@@ -70,4 +70,16 @@ li:hover {
 .search-container {
   overflow-y: scroll;
   max-height: 84px;
+}
+
+.wrong-language-container {
+  display: flex;
+
+}
+
+.wrong-language-container > li {
+  background: red;
+  border-radius: 2px;
+  margin: 0 10px 0px 0;
+  padding: 3px;
 }
