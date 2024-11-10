@@ -30,11 +30,13 @@
 
 <main>
   <section x-data="classic" x-transition>
-    <pre>
-    <code class="language-markup" x-text="helloWorld"></code>
-  </pre>
     <div>
-      <input type="text" @input="filteredLanguages" placeholder="search ..." x-model="search">
+    <pre>
+    <code class="language-markup" x-text="helloWorld" ></code>
+  </pre>
+</div>
+    <div>
+      <input class="search-input" type="text" @input="filteredLanguages" placeholder="search ..." x-model="search">
       <ul id="search-container" class="search-container" x-show="search.length > 0" x-transition>
         <template x-for="language in filteredLanguages" :key="language">
           <li x-text="language" x-on:click="selectLanguage(language)"></li>
