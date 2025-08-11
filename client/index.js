@@ -9,6 +9,7 @@ Alpine.data("classic", () => ({
   loading: true,
   winner: false,
   primsClass: "",
+  selectedIndex: 0,
   init() {
     fetch("http://localhost:3000/")
       .then((response) => response.json())
@@ -20,6 +21,10 @@ Alpine.data("classic", () => ({
 
         this.$nextTick(() => {
           Prism.highlightElement(this.$root.querySelector("code"));
+          const terminalInput = document.querySelector(".terminal-input");
+          if (terminalInput) {
+            terminalInput.focus();
+          }
         });
       })
       .catch((error) => {
@@ -27,7 +32,17 @@ Alpine.data("classic", () => ({
       })
       .finally(() => (this.loading = false));
   },
-
+  handleEnterKey() {
+    console.log("ADasd")
+    if (this.search.trim()) {
+      if (this.filteredLanguages.length > 0) {
+        this.selectLanguage(
+          this.filteredLanguages[this.selectedIndex] ||
+            this.filteredLanguages[0]
+        );
+      }
+    }
+  },
   get filteredLanguages() {
     return this.languageList.filter((i) =>
       i.toLowerCase().includes(this.search.toLowerCase())
@@ -37,6 +52,12 @@ Alpine.data("classic", () => ({
   selectLanguage(language) {
     this.selectedLanguageId = language;
     this.postToApi(language);
+    this.$nextTick(() => {
+      const terminalInput = document.querySelector(".terminal-input");
+      if (terminalInput) {
+        terminalInput.focus();
+      }
+    });
   },
 
   postToApi(language) {

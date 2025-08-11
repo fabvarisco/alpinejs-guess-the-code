@@ -1,92 +1,586 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+/* Reset e Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  margin: 0;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  background: #1e1e1e;
+  color: #d4d4d4;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Container Principal */
+.ide-container {
   display: flex;
-  place-items: center;
-  width: 100%;
-  min-height:100vh ;
+  flex-direction: column;
+  height: 100vh;
+  background: #1e1e1e;
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Title Bar */
+.title-bar {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  background: #3c3c3c;
+  border-bottom: 1px solid #2d2d30;
+  padding: 0 10px;
+  font-size: 13px;
 }
 
-main {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.title-bar-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.control.close { background: #ff5f56; }
+.control.minimize { background: #ffbd2e; }
+.control.maximize { background: #27ca3f; }
+
+.title-bar-title {
+  flex: 1;
   text-align: center;
+  color: #cccccc;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-ul {
-  list-style-type: none;
-}
-
-#search-container > li:hover {
-  cursor: pointer;
-  background-color: aqua;
-}
-
-.search-container {
-  overflow-y: scroll;
-  max-height: 84px;
-}
-
-.wrong-language-container {
+.title-bar-menu {
   display: flex;
+  gap: 20px;
 }
 
-.wrong-language-container > li {
-  background: red;
-  border-radius: 2px;
-  margin: 0 10px 0px 0;
-  padding: 3px;
+.title-bar-menu span {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.title-bar-menu span:hover {
+  background: #4d4d4d;
+}
+
+/* Main Layout */
+.ide-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #252526;
+  border-right: 1px solid #2d2d30;
+  padding: 10px;
+}
+
+.sidebar-header h3 {
+  color: #cccccc;
+  font-size: 11px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.file-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.file-item:hover {
+  background: #2a2d2e;
+}
+
+.file-item.active {
+  background: #094771;
+  color: #ffffff;
+}
+
+.file-icon {
+  font-size: 12px;
+}
+
+/* Editor Container */
+.editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #1e1e1e;
+}
+
+/* Editor Tabs */
+.editor-tabs {
+  display: flex;
+  background: #2d2d30;
+  border-bottom: 1px solid #2d2d30;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #2d2d30;
+  border-right: 1px solid #2d2d30;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #1e1e1e;
+  color: #ffffff;
+}
+
+.tab-close {
+  margin-left: 8px;
+  opacity: 0.6;
+}
+
+.tab-close:hover {
+  opacity: 1;
+}
+
+/* Code Editor */
+.code-editor {
+  display: flex;
+  flex: 1;
+  background: #1e1e1e;
+  overflow: auto;
+}
+
+.line-numbers {
+  background: #1e1e1e;
+  color: #858585;
+  padding: 20px 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: right;
+  user-select: none;
+  min-width: 50px;
+  border-right: 1px solid #2d2d30;
+}
+
+.line-number {
+  height: 21px;
+}
+
+.code-content {
+  width: 100%;
+}
+
+.panel-header h3 {
+  color: #cccccc;
+  font-size: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #2d2d30;
+}
+
+.search-section {
+  margin-bottom: 20px;
+}
+
+.search-section label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: #cccccc;
 }
 
 .search-input {
   width: 100%;
+  padding: 8px 12px;
+  background: #3c3c3c;
+  border: 1px solid #464647;
+  border-radius: 4px;
+  color: #d4d4d4;
+  font-size: 13px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #007acc;
+  box-shadow: 0 0 0 1px #007acc;
+}
+
+.search-results {
+  list-style: none;
+  margin-top: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #464647;
+  border-radius: 4px;
+  background: #3c3c3c;
+}
+
+.search-item {
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  border-bottom: 1px solid #464647;
+}
+
+.search-item:hover {
+  background: #094771;
+}
+
+.search-item:last-child {
+  border-bottom: none;
+}
+
+.wrong-answers h4 {
+  color: #f48771;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+
+.wrong-list {
+  list-style: none;
+}
+
+.wrong-item {
+  padding: 4px 8px;
+  background: #5a1d1d;
+  color: #f48771;
+  margin-bottom: 4px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+/* Status Bar */
+.status-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 24px;
+  background: #007acc;
+  color: #ffffff;
+  padding: 0 10px;
+  font-size: 12px;
+}
+
+.status-left, .status-right {
+  display: flex;
+  gap: 15px;
+}
+
+.status-item {
+  cursor: pointer;
+}
+
+.status-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 2px 4px;
+  border-radius: 2px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+  
+  .game-panel {
+    width: 250px;
+  }
+}
+
+@media (max-width: 640px) {
+  .ide-main {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+  }
+}
+
+/* Animações */
+.search-results {
+  animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar customizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4f4f4f;
+}
+
+
+/* Terminal Container */
+.terminal-container {
+  height: 250px;
+  background: #0c0c0c;
+  border-top: 1px solid #2d2d30;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+/* Terminal Header */
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 35px;
+  background: #1e1e1e;
+  border-bottom: 1px solid #2d2d30;
+  padding: 0 10px;
+}
+
+.terminal-tabs {
+  display: flex;
+  gap: 2px;
+}
+
+.terminal-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #2d2d30;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #cccccc;
+}
+
+.terminal-tab.active {
+  background: #0c0c0c;
+  color: #ffffff;
+}
+
+.terminal-tab:hover:not(.active) {
+  background: #3c3c3c;
+}
+
+.terminal-icon {
+  font-size: 10px;
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.terminal-btn {
+  background: none;
+  border: none;
+  color: #cccccc;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.terminal-btn:hover {
+  background: #3c3c3c;
+}
+
+/* Terminal Content */
+.terminal-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #0c0c0c;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.terminal-output {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.terminal-line {
+  margin-bottom: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.terminal-line.error .terminal-error {
+  color: #f48771;
+  font-weight: bold;
+}
+
+.terminal-prompt {
+  color: #4ec9b0;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.terminal-text {
+  color: #d4d4d4;
+}
+
+.terminal-command {
+  color: #569cd6;
+}
+
+/* Terminal Input */
+.terminal-input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #0c0c0c;
+  border-top: 1px solid #2d2d30;
+  position: relative;
+  font-size: 13px;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  flex: 1;
+  margin: 0 2px;
+}
+
+.terminal-input::placeholder {
+  color: #666666;
+  font-style: italic;
+}
+
+/* Terminal Autocomplete */
+.terminal-autocomplete {
+  position: absolute;
+  bottom: 100%;
+  left: 100px;
+  right: 20px;
+  background: #1e1e1e;
+  border: 1px solid #464647;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+  font-size: 12px;
+}
+
+.autocomplete-header {
+  padding: 6px 10px;
+  background: #2d2d30;
+  color: #cccccc;
+  font-size: 11px;
+  border-bottom: 1px solid #464647;
+}
+
+.autocomplete-item {
+  padding: 6px 10px;
+  cursor: pointer;
+  color: #d4d4d4;
+  border-bottom: 1px solid #2d2d30;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.selected {
+  background: #094771;
+  color: #ffffff;
+}
+
+.autocomplete-item:last-child {
+  border-bottom: none;
+}
+
+/* Scrollbar para terminal */
+.terminal-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+  background: #0c0c0c;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 4px;
+}
+
+.terminal-output::-webkit-scrollbar-thumb:hover {
+  background: #4f4f4f;
+}
+
+/* Animação para autocomplete */
+.terminal-autocomplete {
+  animation: slideUp 0.2s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade para terminal */
+@media (max-width: 768px) {
+  .terminal-container {
+    height: 200px;
+  }
+  
+  .terminal-header {
+    height: 30px;
+  }
+  
+  .terminal-tab {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
 }
