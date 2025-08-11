@@ -8,12 +8,21 @@ Alpine.data('classic', () => ({
     wrongList: [],
     loading: true,
     winner: false,
+    primsClass: "",
     init() {
         fetch('http://localhost:3000/')
             .then(response => response.json())
             .then(data => {
-                this.languageList = data.languages
+                console.log(data)
+                this.languageList = data.languages;
                 this.helloWorld = data.helloWorld;
+                this.primsClass = `language-${data.markup}`;
+
+                this.$nextTick(() => {
+                    Prism.highlightElement(
+                        this.$root.querySelector('code')
+                    );
+                });
             })
             .catch(error => {
                 console.error('Error fetching data:', error);

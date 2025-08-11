@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "alpinejs": "^3.13.7",
-    "alpinejs-i18n": "^2.4.2"
+    "alpinejs-i18n": "^2.4.2",
+    "prismjs": "^1.30.0"
   }
 }

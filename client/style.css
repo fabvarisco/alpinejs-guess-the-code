@@ -26,6 +26,8 @@ body {
   margin: 0;
   display: flex;
   place-items: center;
+  width: 100%;
+  min-height:100vh ;
 }
 
 h1 {
@@ -62,6 +64,7 @@ button:focus-visible {
 ul {
   list-style-type: none;
 }
+
 #search-container > li:hover {
   cursor: pointer;
   background-color: aqua;
@@ -74,7 +77,6 @@ ul {
 
 .wrong-language-container {
   display: flex;
-
 }
 
 .wrong-language-container > li {

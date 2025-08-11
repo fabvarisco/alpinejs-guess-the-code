@@ -1,44 +1,1487 @@
-{
-    "programming_languages": [
-      {
-        "name": "Python",
-        "hello_world": "print('Hello, World!')"
-      },
-      {
-        "name": "JavaScript",
-        "hello_world": "console.log('Hello, World!');"
-      },
-      {
-        "name": "Java",
-        "hello_world": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println('Hello, World!');\n    }\n}"
-      },
-      {
-        "name": "C++",
-        "hello_world": "#include <iostream>\n\nint main() {\n    std::cout << 'Hello, World!' << std::endl;\n    return 0;\n}"
-      },
-      {
-        "name": "Ruby",
-        "hello_world": "puts 'Hello, World!'"
-      },
-      {
-        "name": "Swift",
-        "hello_world": "print('Hello, World!')"
-      },
-      {
-        "name": "C#",
-        "hello_world": "using System;\n\nclass Program\n{\n    static void Main()\n    {\n        Console.WriteLine('Hello, World!');\n    }\n}"
-      },
-      {
-        "name": "Go",
-        "hello_world": "package main\n\nimport 'fmt'\n\nfunc main() {\n    fmt.Println('Hello, World!')\n}"
-      },
-      {
-        "name": "PHP",
-        "hello_world": "<?php\n\necho 'Hello, World!';\n?>"
-      },
-      {
-        "name": "Rust",
-        "hello_world": "fn main() {\n    println!('Hello, World!');\n}"
-      }
-    ]
+[
+  {
+    "name": "Markup",
+    "markup": "markup, html, xml, svg, mathml, ssml, atom, rss",
+    "code": "<!DOCTYPE html>\n<html>\n<head>\n    <title>Hello World</title>\n</head>\n<body>\n    <h1>Hello, World!</h1>\n</body>\n</html>"
+  },
+  {
+    "name": "CSS",
+    "markup": "css",
+    "code": "body::before {\n    content: \"Hello, World!\";\n    font-size: 24px;\n    color: #333;\n}"
+  },
+  {
+    "name": "C-like",
+    "markup": "clike",
+    "code": "#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"
+  },
+  {
+    "name": "JavaScript",
+    "markup": "javascript, js",
+    "code": "console.log(\"Hello, World!\");"
+  },
+  {
+    "name": "ABAP",
+    "markup": "abap",
+    "code": "REPORT zhello_world.\nWRITE: 'Hello, World!'."
+  },
+  {
+    "name": "ABNF",
+    "markup": "abnf",
+    "code": "hello-world = \"Hello, World!\""
+  },
+  {
+    "name": "ActionScript",
+    "markup": "actionscript",
+    "code": "package {\n    import flash.display.MovieClip;\n    public class HelloWorld extends MovieClip {\n        public function HelloWorld() {\n            trace(\"Hello, World!\");\n        }\n    }\n}"
+  },
+  {
+    "name": "Ada",
+    "markup": "ada",
+    "code": "with Ada.Text_IO;\nprocedure Hello_World is\nbegin\n   Ada.Text_IO.Put_Line(\"Hello, World!\");\nend Hello_World;"
+  },
+  {
+    "name": "Agda",
+    "markup": "agda",
+    "code": "module HelloWorld where\n\nopen import IO\n\nmain = run (putStrLn \"Hello, World!\")"
+  },
+  {
+    "name": "AL",
+    "markup": "al",
+    "code": "codeunit 50100 HelloWorld\n{\n    trigger OnRun()\n    begin\n        Message('Hello, World!');\n    end;\n}"
+  },
+  {
+    "name": "ANTLR4",
+    "markup": "antlr4, g4",
+    "code": "grammar HelloWorld;\n\nhello : 'Hello' ',' 'World' '!' ;\n\nWS : [ \\t\\r\\n]+ -> skip ;"
+  },
+  {
+    "name": "Apache Configuration",
+    "markup": "apacheconf",
+    "code": "# Hello World Apache Config\nServerName hello.world\nDocumentRoot /var/www/html\n\n<Directory /var/www/html>\n    Options Indexes FollowSymLinks\n    AllowOverride None\n    Require all granted\n</Directory>"
+  },
+  {
+    "name": "Apex",
+    "markup": "apex",
+    "code": "public class HelloWorld {\n    public static void sayHello() {\n        System.debug('Hello, World!');\n    }\n}"
+  },
+  {
+    "name": "APL",
+    "markup": "apl",
+    "code": "'Hello, World!'"
+  },
+  {
+    "name": "AppleScript",
+    "markup": "applescript",
+    "code": "display dialog \"Hello, World!\""
+  },
+  {
+    "name": "AQL",
+    "markup": "aql",
+    "code": "RETURN \"Hello, World!\""
+  },
+  {
+    "name": "Arduino",
+    "markup": "arduino, ino",
+    "code": "void setup() {\n  Serial.begin(9600);\n  Serial.println(\"Hello, World!\");\n}\n\nvoid loop() {\n  // Empty loop\n}"
+  },
+  {
+    "name": "ARFF",
+    "markup": "arff",
+    "code": "@relation hello-world\n\n@attribute message string\n\n@data\n\"Hello, World!\""
+  },
+  {
+    "name": "ARM Assembly",
+    "markup": "armasm, arm-asm",
+    "code": ".global _start\n.text\n_start:\n    mov r7, #4\n    mov r0, #1\n    ldr r1, =message\n    mov r2, #13\n    swi 0\n    mov r7, #1\n    mov r0, #0\n    swi 0\n\n.data\nmessage: .ascii \"Hello, World!\\n\""
+  },
+  {
+    "name": "Arturo",
+    "markup": "arturo, art",
+    "code": "print \"Hello, World!\""
+  },
+  {
+    "name": "AsciiDoc",
+    "markup": "asciidoc, adoc",
+    "code": "= Hello World\n\nHello, World!"
+  },
+  {
+    "name": "ASP.NET (C#)",
+    "markup": "aspnet",
+    "code": "<%@ Page Language=\"C#\" %>\n<!DOCTYPE html>\n<html>\n<head>\n    <title>Hello World</title>\n</head>\n<body>\n    <% Response.Write(\"Hello, World!\"); %>\n</body>\n</html>"
+  },
+  {
+    "name": "6502 Assembly",
+    "markup": "asm6502",
+    "code": "LDA #$48    ; 'H'\nJSR $FFD2\nLDA #$65    ; 'e'\nJSR $FFD2\nLDA #$6C    ; 'l'\nJSR $FFD2\nJSR $FFD2\nLDA #$6F    ; 'o'\nJSR $FFD2\nLDA #$2C    ; ','\nJSR $FFD2\nLDA #$20    ; ' '\nJSR $FFD2\nLDA #$57    ; 'W'\nJSR $FFD2\nLDA #$6F    ; 'o'\nJSR $FFD2\nLDA #$72    ; 'r'\nJSR $FFD2\nLDA #$6C    ; 'l'\nJSR $FFD2\nLDA #$64    ; 'd'\nJSR $FFD2\nLDA #$21    ; '!'\nJSR $FFD2\nRTS"
+  },
+  {
+    "name": "Atmel AVR Assembly",
+    "markup": "asmatmel",
+    "code": ".include \"m328pdef.inc\"\n\n.org 0x0000\n    rjmp main\n\nmain:\n    ldi r16, 'H'\n    out PORTB, r16\n    ; Continue with remaining characters\n    rjmp main"
+  },
+  {
+    "name": "AutoHotkey",
+    "markup": "autohotkey",
+    "code": "MsgBox, Hello, World!"
+  },
+  {
+    "name": "AutoIt",
+    "markup": "autoit",
+    "code": "MsgBox(0, \"Hello\", \"Hello, World!\")"
+  },
+  {
+    "name": "AviSynth",
+    "markup": "avisynth, avs",
+    "code": "BlankClip()\nSubtitle(\"Hello, World!\", size=48)"
+  },
+  {
+    "name": "Avro IDL",
+    "markup": "avro-idl, avdl",
+    "code": "protocol HelloWorld {\n  record Message {\n    string text = \"Hello, World!\";\n  }\n}"
+  },
+  {
+    "name": "AWK",
+    "markup": "awk, gawk",
+    "code": "BEGIN { print \"Hello, World!\" }"
+  },
+  {
+    "name": "Bash",
+    "markup": "bash, sh, shell",
+    "code": "#!/bin/bash\necho \"Hello, World!\""
+  },
+  {
+    "name": "BASIC",
+    "markup": "basic",
+    "code": "10 PRINT \"Hello, World!\"\n20 END"
+  },
+  {
+    "name": "Batch",
+    "markup": "batch",
+    "code": "@echo off\necho Hello, World!\npause"
+  },
+  {
+    "name": "BBcode",
+    "markup": "bbcode, shortcode",
+    "code": "[b]Hello, World![/b]"
+  },
+  {
+    "name": "BBj",
+    "markup": "bbj",
+    "code": "print \"Hello, World!\""
+  },
+  {
+    "name": "Bicep",
+    "markup": "bicep",
+    "code": "output message string = 'Hello, World!'"
+  },
+  {
+    "name": "Birb",
+    "markup": "birb",
+    "code": "screm(\"Hello, World!\");"
+  },
+  {
+    "name": "Bison",
+    "markup": "bison",
+    "code": "%{\n#include <stdio.h>\n%}\n\n%%\nhello: \"Hello, World!\" { printf(\"Hello, World!\\n\"); };"
+  },
+  {
+    "name": "BNF",
+    "markup": "bnf, rbnf",
+    "code": "<hello-world> ::= \"Hello, World!\""
+  },
+  {
+    "name": "BQN",
+    "markup": "bqn",
+    "code": "•Out \"Hello, World!\""
+  },
+  {
+    "name": "Brainfuck",
+    "markup": "brainfuck",
+    "code": "++++++++[>++++[>++>+++>+++>+<<<<-]>+>+>->>+[<]<-]>>.>---.+++++++..+++.>>.<-.<.+++.------.--------.>>+.>++."
+  },
+  {
+    "name": "BrightScript",
+    "markup": "brightscript",
+    "code": "print \"Hello, World!\""
+  },
+  {
+    "name": "Bro",
+    "markup": "bro",
+    "code": "event zeek_init() {\n    print \"Hello, World!\";\n}"
+  },
+  {
+    "name": "BSL (1C:Enterprise)",
+    "markup": "bsl, oscript",
+    "code": "Сообщить(\"Hello, World!\");"
+  },
+  {
+    "name": "C",
+    "markup": "c",
+    "code": "#include <stdio.h>\n\nint main() {\n    printf(\"Hello, World!\\n\");\n    return 0;\n}"
+  },
+  {
+    "name": "C#",
+    "markup": "csharp, cs, dotnet",
+    "code": "using System;\n\nclass Program {\n    static void Main() {\n        Console.WriteLine(\"Hello, World!\");\n    }\n}"
+  },
+  {
+    "name": "C++",
+    "markup": "cpp",
+    "code": "#include <iostream>\n\nint main() {\n    std::cout << \"Hello, World!\" << std::endl;\n    return 0;\n}"
+  },
+  {
+    "name": "CFScript",
+    "markup": "cfscript, cfc",
+    "code": "writeOutput(\"Hello, World!\");"
+  },
+  {
+    "name": "ChaiScript",
+    "markup": "chaiscript",
+    "code": "print(\"Hello, World!\");"
+  },
+  {
+    "name": "CIL",
+    "markup": "cil",
+    "code": ".assembly HelloWorld {}\n.method static void Main() {\n    ldstr \"Hello, World!\"\n    call void [mscorlib]System.Console::WriteLine(string)\n    ret\n}"
+  },
+  {
+    "name": "Cilk/C",
+    "markup": "cilkc, cilk-c",
+    "code": "#include <stdio.h>\n#include <cilk/cilk.h>\n\nint main() {\n    cilk_spawn printf(\"Hello, World!\\n\");\n    cilk_sync;\n    return 0;\n}"
+  },
+  {
+    "name": "Cilk/C++",
+    "markup": "cilkcpp, cilk-cpp, cilk",
+    "code": "#include <iostream>\n#include <cilk/cilk.h>\n\nint main() {\n    cilk_spawn std::cout << \"Hello, World!\" << std::endl;\n    cilk_sync;\n    return 0;\n}"
+  },
+  {
+    "name": "Clojure",
+    "markup": "clojure",
+    "code": "(println \"Hello, World!\")"
+  },
+  {
+    "name": "CMake",
+    "markup": "cmake",
+    "code": "cmake_minimum_required(VERSION 3.0)\nmessage(\"Hello, World!\")"
+  },
+  {
+    "name": "COBOL",
+    "markup": "cobol",
+    "code": "IDENTIFICATION DIVISION.\nPROGRAM-ID. HELLO-WORLD.\nPROCEDURE DIVISION.\nDISPLAY 'Hello, World!'.\nSTOP RUN."
+  },
+  {
+    "name": "CoffeeScript",
+    "markup": "coffeescript, coffee",
+    "code": "console.log \"Hello, World!\""
+  },
+  {
+    "name": "Concurnas",
+    "markup": "concurnas, conc",
+    "code": "def main() void:\n    System.out.println(\"Hello, World!\")"
+  },
+  {
+    "name": "Content-Security-Policy",
+    "markup": "csp",
+    "code": "default-src 'self'; script-src 'unsafe-inline' data: 'self'"
+  },
+  {
+    "name": "Cooklang",
+    "markup": "cooklang",
+    "code": "Say Hello, World! and @enjoy."
+  },
+  {
+    "name": "Coq",
+    "markup": "coq",
+    "code": "Require Import Coq.Strings.String.\nOpen Scope string_scope.\nDefinition hello := \"Hello, World!\"."
+  },
+  {
+    "name": "Crystal",
+    "markup": "crystal",
+    "code": "puts \"Hello, World!\""
+  },
+  {
+    "name": "CSS Extras",
+    "markup": "css-extras",
+    "code": "body::before {\n    content: \"Hello, World!\";\n    display: block;\n    text-align: center;\n}"
+  },
+  {
+    "name": "CSV",
+    "markup": "csv",
+    "code": "greeting,target\nHello,World"
+  },
+  {
+    "name": "CUE",
+    "markup": "cue",
+    "code": "message: \"Hello, World!\""
+  },
+  {
+    "name": "Cypher",
+    "markup": "cypher",
+    "code": "RETURN \"Hello, World!\" AS greeting"
+  },
+  {
+    "name": "D",
+    "markup": "d",
+    "code": "import std.stdio;\n\nvoid main() {\n    writeln(\"Hello, World!\");\n}"
+  },
+  {
+    "name": "Dart",
+    "markup": "dart",
+    "code": "void main() {\n  print('Hello, World!');\n}"
+  },
+  {
+    "name": "DataWeave",
+    "markup": "dataweave",
+    "code": "%dw 2.0\noutput application/json\n---\n\"Hello, World!\""
+  },
+  {
+    "name": "DAX",
+    "markup": "dax",
+    "code": "EVALUATE { \"Hello, World!\" }"
+  },
+  {
+    "name": "Dhall",
+    "markup": "dhall",
+    "code": "\"Hello, World!\""
+  },
+  {
+    "name": "Diff",
+    "markup": "diff",
+    "code": "--- before.txt\n+++ after.txt\n@@ -1 +1 @@\n-Hello, World\n+Hello, World!"
+  },
+  {
+    "name": "Django/Jinja2",
+    "markup": "django, jinja2",
+    "code": "{{ \"Hello, World!\" }}"
+  },
+  {
+    "name": "DNS zone file",
+    "markup": "dns-zone-file, dns-zone",
+    "code": "$ORIGIN hello.world.\n$TTL 300\n@ IN SOA ns1.hello.world. admin.hello.world. (\n    2023010101 ; serial\n    3600       ; refresh\n    1800       ; retry\n    604800     ; expire\n    300        ; minimum\n)\n@ IN A 192.168.1.1"
+  },
+  {
+    "name": "Docker",
+    "markup": "docker, dockerfile",
+    "code": "FROM alpine:latest\nRUN echo \"Hello, World!\"\nCMD [\"echo\", \"Hello, World!\"]"
+  },
+  {
+    "name": "DOT (Graphviz)",
+    "markup": "dot, gv",
+    "code": "digraph HelloWorld {\n    \"Hello\" -> \"World!\";\n}"
+  },
+  {
+    "name": "EBNF",
+    "markup": "ebnf",
+    "code": "hello-world = \"Hello\", \",\", \" \", \"World\", \"!\" ;"
+  },
+  {
+    "name": "EditorConfig",
+    "markup": "editorconfig",
+    "code": "# Hello World EditorConfig\nroot = true\n\n[*]\ncharset = utf-8\nend_of_line = lf\ninsert_final_newline = true"
+  },
+  {
+    "name": "Eiffel",
+    "markup": "eiffel",
+    "code": "class HELLO_WORLD\ncreate\n    make\nfeature\n    make\n        do\n            print(\"Hello, World!\")\n        end\nend"
+  },
+  {
+    "name": "EJS",
+    "markup": "ejs, eta",
+    "code": "<%= \"Hello, World!\" %>"
+  },
+  {
+    "name": "Elixir",
+    "markup": "elixir",
+    "code": "IO.puts \"Hello, World!\""
+  },
+  {
+    "name": "Elm",
+    "markup": "elm",
+    "code": "import Html exposing (text)\n\nmain =\n    text \"Hello, World!\""
+  },
+  {
+    "name": "Embedded Lua templating",
+    "markup": "etlua",
+    "code": "<% print(\"Hello, World!\") %>"
+  },
+  {
+    "name": "ERB",
+    "markup": "erb",
+    "code": "<%= \"Hello, World!\" %>"
+  },
+  {
+    "name": "Erlang",
+    "markup": "erlang",
+    "code": "-module(hello).\n-export([world/0]).\n\nworld() ->\n    io:format(\"Hello, World!~n\")."
+  },
+  {
+    "name": "Excel Formula",
+    "markup": "excel-formula, xlsx, xls",
+    "code": "=\"Hello, World!\""
+  },
+  {
+    "name": "F#",
+    "markup": "fsharp",
+    "code": "printfn \"Hello, World!\""
+  },
+  {
+    "name": "Factor",
+    "markup": "factor",
+    "code": "\"Hello, World!\" print"
+  },
+  {
+    "name": "False",
+    "markup": "false",
+    "code": "\"Hello, World!\"."
+  },
+  {
+    "name": "Firestore security rules",
+    "markup": "firestore-security-rules",
+    "code": "rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /hello/{document} {\n      allow read: if resource.data.message == \"Hello, World!\";\n    }\n  }\n}"
+  },
+  {
+    "name": "Flow",
+    "markup": "flow",
+    "code": "// @flow\nconsole.log(\"Hello, World!\");"
+  },
+  {
+    "name": "Fortran",
+    "markup": "fortran",
+    "code": "program hello\n    print *, 'Hello, World!'\nend program hello"
+  },
+  {
+    "name": "FreeMarker Template Language",
+    "markup": "ftl",
+    "code": "${\"Hello, World!\"}"
+  },
+  {
+    "name": "GameMaker Language",
+    "markup": "gml, gamemakerlanguage",
+    "code": "show_message(\"Hello, World!\");"
+  },
+  {
+    "name": "GAP (CAS)",
+    "markup": "gap",
+    "code": "Print(\"Hello, World!\\n\");"
+  },
+  {
+    "name": "G-code",
+    "markup": "gcode",
+    "code": "; Hello World G-code\nG21 ; Set units to millimeters\nG90 ; Use absolute positioning\nM117 Hello, World! ; Display message"
+  },
+  {
+    "name": "GDScript",
+    "markup": "gdscript",
+    "code": "extends Node\n\nfunc _ready():\n    print(\"Hello, World!\")"
+  },
+  {
+    "name": "GEDCOM",
+    "markup": "gedcom",
+    "code": "0 HEAD\n1 SOUR Hello World\n1 GEDC\n2 VERS 5.5\n0 TRLR"
+  },
+  {
+    "name": "gettext",
+    "markup": "gettext, po",
+    "code": "# Hello World\nmsgid \"Hello\"\nmsgstr \"Hello, World!\""
+  },
+  {
+    "name": "Gherkin",
+    "markup": "gherkin",
+    "code": "Feature: Hello World\n  Scenario: Say hello\n    Given I have a greeting\n    When I say hello\n    Then I should see \"Hello, World!\""
+  },
+  {
+    "name": "Git",
+    "markup": "git",
+    "code": "commit 1234567890abcdef\nAuthor: Hello World <hello@world.com>\nDate: Sun Aug 10 19:00:00 2025 -0300\n\n    Hello, World!"
+  },
+  {
+    "name": "GLSL",
+    "markup": "glsl",
+    "code": "#version 330 core\nvoid main() {\n    // Hello, World! in GLSL\n    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n}"
+  },
+  {
+    "name": "GN",
+    "markup": "gn, gni",
+    "code": "# Hello World GN build file\nprint(\"Hello, World!\")"
+  },
+  {
+    "name": "GNU Linker Script",
+    "markup": "linker-script, ld",
+    "code": "/* Hello World Linker Script */\nSECTIONS {\n  .text : { *(.text) }\n  .data : { *(.data) }\n}"
+  },
+  {
+    "name": "Go",
+    "markup": "go",
+    "code": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Hello, World!\")\n}"
+  },
+  {
+    "name": "Go module",
+    "markup": "go-module, go-mod",
+    "code": "module hello-world\n\ngo 1.19"
+  },
+  {
+    "name": "Gradle",
+    "markup": "gradle",
+    "code": "task hello {\n    doLast {\n        println 'Hello, World!'\n    }\n}"
+  },
+  {
+    "name": "GraphQL",
+    "markup": "graphql",
+    "code": "type Query {\n  hello: String\n}\n\n# Query: { hello }\n# Result: { \"hello\": \"Hello, World!\" }"
+  },
+  {
+    "name": "Groovy",
+    "markup": "groovy",
+    "code": "println \"Hello, World!\""
+  },
+  {
+    "name": "Haml",
+    "markup": "haml",
+    "code": "%h1 Hello, World!"
+  },
+  {
+    "name": "Handlebars",
+    "markup": "handlebars, hbs, mustache",
+    "code": "<h1>{{greeting}}</h1>\n<!-- Context: { \"greeting\": \"Hello, World!\" } -->"
+  },
+  {
+    "name": "Haskell",
+    "markup": "haskell, hs",
+    "code": "main :: IO ()\nmain = putStrLn \"Hello, World!\""
+  },
+  {
+    "name": "Haxe",
+    "markup": "haxe",
+    "code": "class HelloWorld {\n    static function main() {\n        trace(\"Hello, World!\");\n    }\n}"
+  },
+  {
+    "name": "HCL",
+    "markup": "hcl",
+    "code": "variable \"greeting\" {\n  default = \"Hello, World!\"\n}\n\noutput \"message\" {\n  value = var.greeting\n}"
+  },
+  {
+    "name": "HLSL",
+    "markup": "hlsl",
+    "code": "float4 main() : SV_Target {\n    // Hello, World! in HLSL\n    return float4(1.0, 1.0, 1.0, 1.0);\n}"
+  },
+  {
+    "name": "Hoon",
+    "markup": "hoon",
+    "code": "|%\n++  hello\n  ~&  \"Hello, World!\"\n  ~\n--"
+  },
+  {
+    "name": "HTTP",
+    "markup": "http",
+    "code": "GET / HTTP/1.1\nHost: hello.world\nUser-Agent: HelloWorld/1.0\n\nHTTP/1.1 200 OK\nContent-Type: text/plain\n\nHello, World!"
+  },
+  {
+    "name": "HTTP Public-Key-Pins",
+    "markup": "hpkp",
+    "code": "Public-Key-Pins: pin-sha256=\"base64+primary==\"; pin-sha256=\"base64+backup==\"; max-age=5184000; includeSubdomains"
+  },
+  {
+    "name": "HTTP Strict-Transport-Security",
+    "markup": "hsts",
+    "code": "Strict-Transport-Security: max-age=31536000; includeSubDomains"
+  },
+  {
+    "name": "IchigoJam",
+    "markup": "ichigojam",
+    "code": "10 PRINT \"Hello, World!\"\n20 END"
+  },
+  {
+    "name": "Icon",
+    "markup": "icon",
+    "code": "procedure main()\n    write(\"Hello, World!\")\nend"
+  },
+  {
+    "name": "ICU Message Format",
+    "markup": "icu-message-format",
+    "code": "{greeting, select, hello {Hello, World!} other {Hi there!}}"
+  },
+  {
+    "name": "Idris",
+    "markup": "idris, idr",
+    "code": "module Main\n\nmain : IO ()\nmain = putStrLn \"Hello, World!\""
+  },
+  {
+    "name": ".ignore",
+    "markup": "ignore, gitignore, hgignore, npmignore",
+    "code": "# Hello World ignore file\n*.log\n.env\nnode_modules/"
+  },
+  {
+    "name": "Inform 7",
+    "markup": "inform7",
+    "code": "\"Hello World\" by \"Author\"\n\nThe Hello Room is a room. \"Hello, World!\""
+  },
+  {
+    "name": "Ini",
+    "markup": "ini",
+    "code": "[hello]\nmessage=Hello, World!"
+  },
+  {
+    "name": "Io",
+    "markup": "io",
+    "code": "\"Hello, World!\" println"
+  },
+  {
+    "name": "J",
+    "markup": "j",
+    "code": "'Hello, World!'"
+  },
+  {
+    "name": "Java",
+    "markup": "java",
+    "code": "public class HelloWorld {\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}"
+  },
+  {
+    "name": "JavaDoc",
+    "markup": "javadoc",
+    "code": "/**\n * Hello World class\n * @author Developer\n * @version 1.0\n * @since 2025\n */\npublic class HelloWorld {\n    /**\n     * Main method that prints Hello, World!\n     * @param args command line arguments\n     */\n    public static void main(String[] args) {\n        System.out.println(\"Hello, World!\");\n    }\n}"
+  },
+  {
+    "name": "JavaDoc-like",
+    "markup": "javadoclike",
+    "code": "/**\n * Hello, World! documentation\n * @param greeting The greeting message\n * @return A hello world string\n */"
+  },
+  {
+    "name": "Java stack trace",
+    "markup": "javastacktrace",
+    "code": "Exception in thread \"main\" java.lang.RuntimeException: Hello, World!\n\tat HelloWorld.main(HelloWorld.java:5)\n\tat java.base/java.lang.System.exit(System.java:1746)"
+  },
+  {
+    "name": "Jexl",
+    "markup": "jexl",
+    "code": "var greeting = \"Hello, World!\"; greeting"
+  },
+  {
+    "name": "Jolie",
+    "markup": "jolie",
+    "code": "main {\n    println@Console(\"Hello, World!\")();\n}"
+  },
+  {
+    "name": "JQ",
+    "markup": "jq",
+    "code": ".message = \"Hello, World!\""
+  },
+  {
+    "name": "JSDoc",
+    "markup": "jsdoc",
+    "code": "/**\n * Hello World function\n * @function\n * @name helloWorld\n * @description Prints Hello, World!\n * @example\n * helloWorld(); // \"Hello, World!\"\n */\nfunction helloWorld() {\n    console.log(\"Hello, World!\");\n}"
+  },
+  {
+    "name": "JS Extras",
+    "markup": "js-extras",
+    "code": "const greeting = \"Hello, World!\";\nconsole.log(greeting);"
+  },
+  {
+    "name": "JSON",
+    "markup": "json, webmanifest",
+    "code": "{\n  \"message\": \"Hello, World!\",\n  \"language\": \"JSON\"\n}"
+  },
+  {
+    "name": "JSON5",
+    "markup": "json5",
+    "code": "{\n  message: \"Hello, World!\",\n  // This is a comment in JSON5\n  language: 'JSON5'\n}"
+  },
+  {
+    "name": "JSONP",
+    "markup": "jsonp",
+    "code": "callback({\"message\": \"Hello, World!\"});"
+  },
+  {
+    "name": "JS stack trace",
+    "markup": "jsstacktrace",
+    "code": "ReferenceError: Hello, World! is not defined\n    at Object.<anonymous> (/hello.js:1:1)\n    at Module._compile (module.js:653:30)\n    at Object.Module._extensions..js (module.js:664:10)"
+  },
+  {
+    "name": "JS Templates",
+    "markup": "js-templates",
+    "code": "const template = `Hello, ${name}!`;\nconsole.log(template.replace('${name}', 'World'));"
+  },
+  {
+    "name": "Julia",
+    "markup": "julia",
+    "code": "println(\"Hello, World!\")"
+  },
+  {
+    "name": "Keepalived Configure",
+    "markup": "keepalived",
+    "code": "# Hello World Keepalived Config\nvrrp_script hello_check {\n    script \"echo 'Hello, World!'\"\n    interval 2\n}"
+  },
+  {
+    "name": "Keyman",
+    "markup": "keyman",
+    "code": "store(&VERSION) '9.0'\nstore(&NAME) 'Hello World'\nbegin Unicode > use(main)\n\ngroup(main) using keys\n+ 'h' > 'Hello, World!'"
+  },
+  {
+    "name": "Kotlin",
+    "markup": "kotlin, kt, kts",
+    "code": "fun main() {\n    println(\"Hello, World!\")\n}"
+  },
+  {
+    "name": "KuMir (КуМир)",
+    "markup": "kumir, kum",
+    "code": "алг\nнач\n  вывод \"Hello, World!\"\nкон"
+  },
+  {
+    "name": "Kusto",
+    "markup": "kusto",
+    "code": "print \"Hello, World!\""
+  },
+  {
+    "name": "LaTeX",
+    "markup": "latex, tex, context",
+    "code": "\\documentclass{article}\n\\begin{document}\nHello, World!\n\\end{document}"
+  },
+  {
+    "name": "Latte",
+    "markup": "latte",
+    "code": "{var $greeting = \"Hello, World!\"}\n{$greeting}"
+  },
+  {
+    "name": "Less",
+    "markup": "less",
+    "code": "@greeting: \"Hello, World!\";\n\nbody::before {\n  content: @greeting;\n}"
+  },
+  {
+    "name": "LilyPond",
+    "markup": "lilypond, ly",
+    "code": "\\version \"2.22\"\n\\markup { \"Hello, World!\" }"
+  },
+  {
+    "name": "Liquid",
+    "markup": "liquid",
+    "code": "{{ \"Hello, World!\" }}"
+  },
+  {
+    "name": "Lisp",
+    "markup": "lisp, emacs, elisp, emacs-lisp",
+    "code": "(print \"Hello, World!\")"
+  },
+  {
+    "name": "LiveScript",
+    "markup": "livescript",
+    "code": "console.log \"Hello, World!\""
+  },
+  {
+    "name": "LLVM IR",
+    "markup": "llvm",
+    "code": "@.str = private unnamed_addr constant [14 x i8] c\"Hello, World!\\00\"\ndeclare i32 @puts(i8*)\ndefine i32 @main() {\n  %1 = call i32 @puts(i8* getelementptr inbounds ([14 x i8], [14 x i8]* @.str, i32 0, i32 0))\n  ret i32 0\n}"
+  },
+  {
+    "name": "Log file",
+    "markup": "log",
+    "code": "2025-08-10 19:00:00 INFO Hello, World! application started\n2025-08-10 19:00:01 DEBUG Greeting message displayed\n2025-08-10 19:00:02 INFO Application terminated successfully"
+  },
+  {
+    "name": "LOLCODE",
+    "markup": "lolcode",
+    "code": "HAI 1.2\nVISIBLE \"Hello, World!\"\nKTHXBYE"
+  },
+  {
+    "name": "Lua",
+    "markup": "lua",
+    "code": "print(\"Hello, World!\")"
+  },
+  {
+    "name": "Magma (CAS)",
+    "markup": "magma",
+    "code": "print \"Hello, World!\";"
+  },
+  {
+    "name": "Makefile",
+    "markup": "makefile",
+    "code": "hello:\n\t@echo \"Hello, World!\"\n\n.PHONY: hello"
+  },
+  {
+    "name": "Markdown",
+    "markup": "markdown, md",
+    "code": "# Hello World\n\n**Hello, World!**\n\n- This is a greeting\n- In Markdown format"
+  },
+  {
+    "name": "Markup templating",
+    "markup": "markup-templating",
+    "code": "<template>\n  <div>{{ greeting }}</div>\n</template>\n<!-- Context: { \"greeting\": \"Hello, World!\" } -->"
+  },
+  {
+    "name": "Mata",
+    "markup": "mata",
+    "code": "mata:\nvoid hello() {\n    printf(\"Hello, World!\\n\")\n}\nhello()\nend"
+  },
+  {
+    "name": "MATLAB",
+    "markup": "matlab",
+    "code": "disp('Hello, World!')"
+  },
+  {
+    "name": "MAXScript",
+    "markup": "maxscript",
+    "code": "print \"Hello, World!\""
+  },
+  {
+    "name": "MEL",
+    "markup": "mel",
+    "code": "print(\"Hello, World!\\n\");"
+  },
+  {
+    "name": "Mermaid",
+    "markup": "mermaid",
+    "code": "graph TD\n    A[Hello] --> B[World!]\n    B --> C[Greeting Complete]"
+  },
+  {
+    "name": "METAFONT",
+    "markup": "metafont",
+    "code": "message \"Hello, World!\"; end."
+  },
+  {
+    "name": "Mizar",
+    "markup": "mizar",
+    "code": "environ\nvocabulary HELLO;\nbegin\n  :: Hello, World!\nend;"
+  },
+  {
+    "name": "MongoDB",
+    "markup": "mongodb",
+    "code": "db.greetings.insertOne({message: \"Hello, World!\", date: new Date()})"
+  },
+  {
+    "name": "Monkey",
+    "markup": "monkey",
+    "code": "Function Main:Int()\n    Print(\"Hello, World!\")\n    Return 0\nEnd"
+  },
+  {
+    "name": "MoonScript",
+    "markup": "moonscript, moon",
+    "code": "print \"Hello, World!\""
+  },
+  {
+    "name": "N1QL",
+    "markup": "n1ql",
+    "code": "SELECT \"Hello, World!\" AS greeting"
+  },
+  {
+    "name": "N4JS",
+    "markup": "n4js, n4jsd",
+    "code": "console.log(\"Hello, World!\");"
+  },
+  {
+    "name": "Nand To Tetris HDL",
+    "markup": "nand2tetris-hdl",
+    "code": "// Hello World HDL\nCHIP HelloWorld {\n    IN in;\n    OUT out;\n    PARTS:\n    // Implementation here\n}"
+  },
+  {
+    "name": "Naninovel Script",
+    "markup": "naniscript, nani",
+    "code": "@char Hello\nHello, World!\n@stop"
+  },
+  {
+    "name": "NASM",
+    "markup": "nasm",
+    "code": "section .data\n    hello db 'Hello, World!', 0\n\nsection .text\n    global _start\n\n_start:\n    mov eax, 4\n    mov ebx, 1\n    mov ecx, hello\n    mov edx, 13\n    int 0x80\n    \n    mov eax, 1\n    xor ebx, ebx\n    int 0x80"
+  },
+  {
+    "name": "NEON",
+    "markup": "neon",
+    "code": "greeting: Hello, World!\nlanguage: NEON"
+  },
+  {
+    "name": "Nevod",
+    "markup": "nevod",
+    "code": "@search @pattern(\n  \"Hello, World!\"\n);"
+  },
+  {
+    "name": "nginx",
+    "markup": "nginx",
+    "code": "server {\n    listen 80;\n    server_name hello.world;\n    \n    location / {\n        return 200 \"Hello, World!\";\n        add_header Content-Type text/plain;\n    }\n}"
+  },
+  {
+    "name": "Nim",
+    "markup": "nim",
+    "code": "echo \"Hello, World!\""
+  },
+  {
+    "name": "Nix",
+    "markup": "nix",
+    "code": "let\n  greeting = \"Hello, World!\";\nin\n  greeting"
+  },
+  {
+    "name": "NSIS",
+    "markup": "nsis",
+    "code": "!define APPNAME \"Hello World\"\nOutFile \"hello.exe\"\nSection\n    MessageBox MB_OK \"Hello, World!\"\nSectionEnd"
+  },
+  {
+    "name": "Objective-C",
+    "markup": "objectivec, objc",
+    "code": "#import <Foundation/Foundation.h>\n\nint main() {\n    @autoreleasepool {\n        NSLog(@\"Hello, World!\");\n    }\n    return 0;\n}"
+  },
+  {
+    "name": "OCaml",
+    "markup": "ocaml",
+    "code": "print_endline \"Hello, World!\";;"
+  },
+  {
+    "name": "Odin",
+    "markup": "odin",
+    "code": "package main\n\nimport \"core:fmt\"\n\nmain :: proc() {\n    fmt.println(\"Hello, World!\")\n}"
+  },
+  {
+    "name": "OpenCL",
+    "markup": "opencl",
+    "code": "__kernel void hello(__global char* output) {\n    int gid = get_global_id(0);\n    if (gid == 0) {\n        // Hello, World! in OpenCL\n    }\n}"
+  },
+  {
+    "name": "OpenQasm",
+    "markup": "openqasm, qasm",
+    "code": "OPENQASM 2.0;\ninclude \"qelib1.inc\";\n// Hello, World! quantum circuit\nqreg q[1];\ncreg c[1];\nh q[0];\nmeasure q[0] -> c[0];"
+  },
+  {
+    "name": "Oz",
+    "markup": "oz",
+    "code": "functor\nimport\n   System\ndefine\n   {System.showInfo \"Hello, World!\"}\nend"
+  },
+  {
+    "name": "PARI/GP",
+    "markup": "parigp",
+    "code": "print(\"Hello, World!\")"
+  },
+  {
+    "name": "Parser",
+    "markup": "parser",
+    "code": "grammar HelloWorld;\nhello : 'Hello' ',' 'World' '!' ;\nWS : [ \\t\\r\\n]+ -> skip ;"
+  },
+  {
+    "name": "Pascal",
+    "markup": "pascal, objectpascal",
+    "code": "program HelloWorld;\nbegin\n    writeln('Hello, World!');\nend."
+  },
+  {
+    "name": "Pascaligo",
+    "markup": "pascaligo",
+    "code": "function main (const p : unit) : string is\n  block { skip } with \"Hello, World!\""
+  },
+  {
+    "name": "PATROL Scripting Language",
+    "markup": "psl",
+    "code": "print(\"Hello, World!\");"
+  },
+  {
+    "name": "PC-Axis",
+    "markup": "pcaxis, px",
+    "code": "CHARSET=\"ANSI\";\nLANGUAGE=\"en\";\nCREATION-DATE=\"20250810 19:00\";\nTITLE=\"Hello, World!\";\nVARIABLE-TYPE=\"\";\nDATA=\n\"Hello, World!\";"
+  },
+  {
+    "name": "PeopleCode",
+    "markup": "peoplecode, pcode",
+    "code": "Function HelloWorld()\n   MessageBox(0, \"\", 0, 0, \"Hello, World!\");\nEnd-Function;"
+  },
+  {
+    "name": "Perl",
+    "markup": "perl",
+    "code": "#!/usr/bin/perl\nuse strict;\nuse warnings;\n\nprint \"Hello, World!\\n\";"
+  },
+  {
+    "name": "PHP",
+    "markup": "php",
+    "code": "<?php\necho \"Hello, World!\";\n?>"
+  },
+  {
+    "name": "PHPDoc",
+    "markup": "phpdoc",
+    "code": "<?php\n/**\n * Hello World class\n * @package HelloWorld\n * @author Developer\n * @version 1.0\n */\nclass HelloWorld {\n    /**\n     * Say hello method\n     * @return string The greeting message\n     */\n    public function sayHello() {\n        return \"Hello, World!\";\n    }\n}\n?>"
+  },
+  {
+    "name": "PHP Extras",
+    "markup": "php-extras",
+    "code": "<?php\n$greeting = \"Hello, World!\";\necho $greeting;\n?>"
+  },
+  {
+    "name": "PlantUML",
+    "markup": "plant-uml, plantuml",
+    "code": "@startuml\nAlice -> Bob: Hello, World!\n@enduml"
+  },
+  {
+    "name": "PL/SQL",
+    "markup": "plsql",
+    "code": "BEGIN\n    DBMS_OUTPUT.PUT_LINE('Hello, World!');\nEND;\n/"
+  },
+  {
+    "name": "PowerQuery",
+    "markup": "powerquery, pq, mscript",
+    "code": "let\n    greeting = \"Hello, World!\"\nin\n    greeting"
+  },
+  {
+    "name": "PowerShell",
+    "markup": "powershell",
+    "code": "Write-Host \"Hello, World!\""
+  },
+  {
+    "name": "Processing",
+    "markup": "processing",
+    "code": "void setup() {\n  println(\"Hello, World!\");\n}\n\nvoid draw() {\n  // Empty\n}"
+  },
+  {
+    "name": "Prolog",
+    "markup": "prolog",
+    "code": ":- write('Hello, World!'), nl."
+  },
+  {
+    "name": "PromQL",
+    "markup": "promql",
+    "code": "# Hello World metric\nhello_world_total{message=\"Hello, World!\"}"
+  },
+  {
+    "name": ".properties",
+    "markup": "properties",
+    "code": "# Hello World Properties\ngreeting=Hello, World!\nlanguage=Properties"
+  },
+  {
+    "name": "Protocol Buffers",
+    "markup": "protobuf",
+    "code": "syntax = \"proto3\";\n\nmessage HelloWorld {\n  string message = 1; // \"Hello, World!\"\n}"
+  },
+  {
+    "name": "Pug",
+    "markup": "pug",
+    "code": "doctype html\nhtml\n  head\n    title Hello World\n  body\n    h1 Hello, World!"
+  },
+  {
+    "name": "Puppet",
+    "markup": "puppet",
+    "code": "notify { 'Hello, World!': }"
+  },
+  {
+    "name": "Pure",
+    "markup": "pure",
+    "code": "hello = \"Hello, World!\";\nhello;"
+  },
+  {
+    "name": "PureBasic",
+    "markup": "purebasic, pbfasm",
+    "code": "OpenConsole()\nPrintN(\"Hello, World!\")\nInput()\nCloseConsole()"
+  },
+  {
+    "name": "PureScript",
+    "markup": "purescript, purs",
+    "code": "module Main where\n\nimport Prelude\nimport Effect.Console (log)\n\nmain = log \"Hello, World!\""
+  },
+  {
+    "name": "Python",
+    "markup": "python, py",
+    "code": "print(\"Hello, World!\")"
+  },
+  {
+    "name": "Q#",
+    "markup": "qsharp, qs",
+    "code": "namespace HelloWorld {\n    open Microsoft.Quantum.Canon;\n    open Microsoft.Quantum.Intrinsic;\n    \n    @EntryPoint()\n    operation HelloQ() : Unit {\n        Message(\"Hello, World!\");\n    }\n}"
+  },
+  {
+    "name": "Q (kdb+ database)",
+    "markup": "q",
+    "code": "\"Hello, World!\""
+  },
+  {
+    "name": "QML",
+    "markup": "qml",
+    "code": "import QtQuick 2.0\n\nText {\n    text: \"Hello, World!\"\n}"
+  },
+  {
+    "name": "Qore",
+    "markup": "qore",
+    "code": "#!/usr/bin/env qore\nprintf(\"Hello, World!\\n\");"
+  },
+  {
+    "name": "R",
+    "markup": "r",
+    "code": "print(\"Hello, World!\")"
+  },
+  {
+    "name": "Racket",
+    "markup": "racket, rkt",
+    "code": "#lang racket\n(displayln \"Hello, World!\")"
+  },
+  {
+    "name": "Razor C#",
+    "markup": "cshtml, razor",
+    "code": "@{\n    var greeting = \"Hello, World!\";\n}\n<h1>@greeting</h1>"
+  },
+  {
+    "name": "React JSX",
+    "markup": "jsx",
+    "code": "import React from 'react';\n\nfunction HelloWorld() {\n  return <h1>Hello, World!</h1>;\n}\n\nexport default HelloWorld;"
+  },
+  {
+    "name": "React TSX",
+    "markup": "tsx",
+    "code": "import React from 'react';\n\nconst HelloWorld: React.FC = () => {\n  return <h1>Hello, World!</h1>;\n};\n\nexport default HelloWorld;"
+  },
+  {
+    "name": "Reason",
+    "markup": "reason",
+    "code": "Js.log(\"Hello, World!\");"
+  },
+  {
+    "name": "Regex",
+    "markup": "regex",
+    "code": "/Hello,\\s+World!/g"
+  },
+  {
+    "name": "Rego",
+    "markup": "rego",
+    "code": "package hello\n\ndefault allow = false\n\nallow {\n    input.message == \"Hello, World!\"\n}"
+  },
+  {
+    "name": "Ren'py",
+    "markup": "renpy, rpy",
+    "code": "label start:\n    \"Hello, World!\"\n    return"
+  },
+  {
+    "name": "ReScript",
+    "markup": "rescript, res",
+    "code": "Js.log(\"Hello, World!\")"
+  },
+  {
+    "name": "reST (reStructuredText)",
+    "markup": "rest",
+    "code": "Hello World\n===========\n\nHello, World!"
+  },
+  {
+    "name": "Rip",
+    "markup": "rip",
+    "code": "\"Hello, World!\" |> print"
+  },
+  {
+    "name": "Roboconf",
+    "markup": "roboconf",
+    "code": "HelloWorld {\n    installer: target;\n    exports: message = \"Hello, World!\";\n}"
+  },
+  {
+    "name": "Robot Framework",
+    "markup": "robotframework, robot",
+    "code": "*** Test Cases ***\nHello World Test\n    Log    Hello, World!"
+  },
+  {
+    "name": "Ruby",
+    "markup": "ruby, rb",
+    "code": "puts \"Hello, World!\""
+  },
+  {
+    "name": "Rust",
+    "markup": "rust",
+    "code": "fn main() {\n    println!(\"Hello, World!\");\n}"
+  },
+  {
+    "name": "SAS",
+    "markup": "sas",
+    "code": "data _null_;\n    put \"Hello, World!\";\nrun;"
+  },
+  {
+    "name": "Sass (Sass)",
+    "markup": "sass",
+    "code": "$greeting: \"Hello, World!\"\n\nbody\n  &::before\n    content: $greeting"
+  },
+  {
+    "name": "Sass (SCSS)",
+    "markup": "scss",
+    "code": "$greeting: \"Hello, World!\";\n\nbody::before {\n    content: $greeting;\n}"
+  },
+  {
+    "name": "Scala",
+    "markup": "scala",
+    "code": "object HelloWorld {\n  def main(args: Array[String]): Unit = {\n    println(\"Hello, World!\")\n  }\n}"
+  },
+  {
+    "name": "Scheme",
+    "markup": "scheme",
+    "code": "(display \"Hello, World!\")\n(newline)"
+  },
+  {
+    "name": "Shell session",
+    "markup": "shell-session, sh-session, shellsession",
+    "code": "$ echo \"Hello, World!\"\nHello, World!\n$ "
+  },
+  {
+    "name": "Smali",
+    "markup": "smali",
+    "code": ".class public LHelloWorld;\n.super Ljava/lang/Object;\n\n.method public static main([Ljava/lang/String;)V\n    .locals 2\n    sget-object v0, Ljava/lang/System;->out:Ljava/io/PrintStream;\n    const-string v1, \"Hello, World!\"\n    invoke-virtual {v0, v1}, Ljava/io/PrintStream;->println(Ljava/lang/String;)V\n    return-void\n.end method"
+  },
+  {
+    "name": "Smalltalk",
+    "markup": "smalltalk",
+    "code": "Transcript show: 'Hello, World!'."
+  },
+  {
+    "name": "Smarty",
+    "markup": "smarty",
+    "code": "{assign var=\"greeting\" value=\"Hello, World!\"}\n{$greeting}"
+  },
+  {
+    "name": "SML",
+    "markup": "sml, smlnj",
+    "code": "print \"Hello, World!\\n\";"
+  },
+  {
+    "name": "Solidity (Ethereum)",
+    "markup": "solidity, sol",
+    "code": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\ncontract HelloWorld {\n    function sayHello() public pure returns (string memory) {\n        return \"Hello, World!\";\n    }\n}"
+  },
+  {
+    "name": "Solution file",
+    "markup": "solution-file, sln",
+    "code": "Microsoft Visual Studio Solution File, Format Version 12.00\n# Hello World Solution\nProject(\"{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}\") = \"HelloWorld\", \"HelloWorld.csproj\", \"{12345678-1234-1234-1234-123456789012}\"\nEndProject"
+  },
+  {
+    "name": "Soy (Closure Template)",
+    "markup": "soy",
+    "code": "{namespace hello}\n\n{template .world}\n  Hello, World!\n{/template}"
+  },
+  {
+    "name": "SPARQL",
+    "markup": "sparql, rq",
+    "code": "SELECT ?greeting WHERE {\n  ?s ?p \"Hello, World!\" .\n  BIND(\"Hello, World!\" AS ?greeting)\n}"
+  },
+  {
+    "name": "Splunk SPL",
+    "markup": "splunk-spl",
+    "code": "| makeresults \n| eval message=\"Hello, World!\" \n| table message"
+  },
+  {
+    "name": "SQF: Status Quo Function (Arma 3)",
+    "markup": "sqf",
+    "code": "hint \"Hello, World!\";"
+  },
+  {
+    "name": "SQL",
+    "markup": "sql",
+    "code": "SELECT 'Hello, World!' AS greeting;"
+  },
+  {
+    "name": "Squirrel",
+    "markup": "squirrel",
+    "code": "print(\"Hello, World!\");"
+  },
+  {
+    "name": "Stan",
+    "markup": "stan",
+    "code": "data {\n  // Hello, World! in Stan\n}\nparameters {\n  real hello;\n}\nmodel {\n  hello ~ normal(0, 1);\n}\ngenerated quantities {\n  print(\"Hello, World!\");\n}"
+  },
+  {
+    "name": "Stata Ado",
+    "markup": "stata",
+    "code": "program define hello\n    display \"Hello, World!\"\nend"
+  },
+  {
+    "name": "Structured Text (IEC 61131-3)",
+    "markup": "iecst",
+    "code": "PROGRAM HelloWorld\nVAR\n    Message : STRING := 'Hello, World!';\nEND_VAR\n\n// Display the message\nEND_PROGRAM"
+  },
+  {
+    "name": "Stylus",
+    "markup": "stylus",
+    "code": "greeting = \"Hello, World!\"\n\nbody\n  &::before\n    content: greeting"
+  },
+  {
+    "name": "SuperCollider",
+    "markup": "supercollider, sclang",
+    "code": "\"Hello, World!\".postln;"
+  },
+  {
+    "name": "Swift",
+    "markup": "swift",
+    "code": "import Foundation\nprint(\"Hello, World!\")"
+  },
+  {
+    "name": "Systemd configuration file",
+    "markup": "systemd",
+    "code": "[Unit]\nDescription=Hello World Service\n\n[Service]\nType=oneshot\nExecStart=/bin/echo \"Hello, World!\"\n\n[Install]\nWantedBy=multi-user.target"
+  },
+  {
+    "name": "T4 templating",
+    "markup": "t4-templating",
+    "code": "<#@ template language=\"C#\" #>\n<#@ output extension=\".txt\" #>\nHello, World!"
+  },
+  {
+    "name": "T4 Text Templates (C#)",
+    "markup": "t4-cs, t4",
+    "code": "<#@ template language=\"C#\" #>\n<#@ output extension=\".cs\" #>\nusing System;\n\npublic class HelloWorld {\n    public static void Main() {\n        Console.WriteLine(\"<#= \"Hello, World!\" #>\");\n    }\n}"
+  },
+  {
+    "name": "T4 Text Templates (VB)",
+    "markup": "t4-vb",
+    "code": "<#@ template language=\"VB\" #>\n<#@ output extension=\".vb\" #>\nImports System\n\nModule HelloWorld\n    Sub Main()\n        Console.WriteLine(\"<#= \"Hello, World!\" #>\")\n    End Sub\nEnd Module"
+  },
+  {
+    "name": "TAP",
+    "markup": "tap",
+    "code": "1..1\nok 1 Hello, World!"
+  },
+  {
+    "name": "Tcl",
+    "markup": "tcl",
+    "code": "puts \"Hello, World!\""
+  },
+  {
+    "name": "Template Toolkit 2",
+    "markup": "tt2",
+    "code": "[% greeting = \"Hello, World!\" %]\n[% greeting %]"
+  },
+  {
+    "name": "Textile",
+    "markup": "textile",
+    "code": "h1. Hello, World!\n\n*Hello, World!* in textile format."
+  },
+  {
+    "name": "TOML",
+    "markup": "toml",
+    "code": "[greeting]\nmessage = \"Hello, World!\"\nlanguage = \"TOML\""
+  },
+  {
+    "name": "Tremor",
+    "markup": "tremor, trickle, troy",
+    "code": "\"Hello, World!\""
+  },
+  {
+    "name": "Turtle",
+    "markup": "turtle, trig",
+    "code": "@prefix ex: <http://example.org/> .\nex:greeting ex:message \"Hello, World!\" ."
+  },
+  {
+    "name": "Twig",
+    "markup": "twig",
+    "code": "{{ \"Hello, World!\" }}"
+  },
+  {
+    "name": "TypeScript",
+    "markup": "typescript, ts",
+    "code": "console.log(\"Hello, World!\");"
+  },
+  {
+    "name": "TypoScript",
+    "markup": "typoscript, tsconfig",
+    "code": "page = PAGE\npage.10 = TEXT\npage.10.value = Hello, World!"
+  },
+  {
+    "name": "UnrealScript",
+    "markup": "unrealscript, uscript, uc",
+    "code": "class HelloWorld extends Object;\n\nfunction PostBeginPlay()\n{\n    Log(\"Hello, World!\");\n}"
+  },
+  {
+    "name": "UO Razor Script",
+    "markup": "uorazor",
+    "code": "// Hello World Razor Script\nsysmsg \"Hello, World!\""
+  },
+  {
+    "name": "URI",
+    "markup": "uri, url",
+    "code": "https://hello.world/?message=Hello%2C%20World%21"
+  },
+  {
+    "name": "V",
+    "markup": "v",
+    "code": "fn main() {\n    println('Hello, World!')\n}"
+  },
+  {
+    "name": "Vala",
+    "markup": "vala",
+    "code": "int main() {\n    print(\"Hello, World!\\n\");\n    return 0;\n}"
+  },
+  {
+    "name": "VB.Net",
+    "markup": "vbnet",
+    "code": "Module HelloWorld\n    Sub Main()\n        Console.WriteLine(\"Hello, World!\")\n    End Sub\nEnd Module"
+  },
+  {
+    "name": "Velocity",
+    "markup": "velocity",
+    "code": "#set($greeting = \"Hello, World!\")\n$greeting"
+  },
+  {
+    "name": "Verilog",
+    "markup": "verilog",
+    "code": "module hello_world;\ninitial begin\n$display(\"Hello, World!\");\n$finish;\nend\nendmodule"
+  },
+  {
+    "name": "VHDL",
+    "markup": "vhdl",
+    "code": "library IEEE;\nuse IEEE.STD_LOGIC_1164.ALL;\n\nentity hello_world is\nend hello_world;\n\narchitecture Behavioral of hello_world is\nbegin\n    process\n    begin\n        report \"Hello, World!\";\n        wait;\n    end process;\nend Behavioral;"
+  },
+  {
+    "name": "vim",
+    "markup": "vim",
+    "code": "\" Hello World in Vim\necho \"Hello, World!\""
+  },
+  {
+    "name": "Visual Basic",
+    "markup": "visual-basic, vb, vba",
+    "code": "Sub Main()\n    MsgBox \"Hello, World!\"\nEnd Sub"
+  },
+  {
+    "name": "WarpScript",
+    "markup": "warpscript",
+    "code": "'Hello, World!' INFO"
+  },
+  {
+    "name": "WebAssembly",
+    "markup": "wasm",
+    "code": "(module\n  (import \"console\" \"log\" (func $log (param i32 i32)))\n  (import \"js\" \"mem\" (memory 1))\n  (data (i32.const 0) \"Hello, World!\")\n  (func $main\n    i32.const 0\n    i32.const 13\n    call $log\n  )\n  (start $main)\n)"
+  },
+  {
+    "name": "Web IDL",
+    "markup": "web-idl, webidl",
+    "code": "interface HelloWorld {\n  readonly attribute DOMString message;\n};\n\n// message would return \"Hello, World!\""
+  },
+  {
+    "name": "WGSL",
+    "markup": "wgsl",
+    "code": "// Hello World compute shader\n@compute @workgroup_size(1)\nfn main() {\n    // Hello, World! in WGSL\n}"
+  },
+  {
+    "name": "Wiki markup",
+    "markup": "wiki",
+    "code": "== Hello World ==\n\n'''Hello, World!''' in wiki markup.\n\n* This is a greeting\n* In wiki format"
+  },
+  {
+    "name": "Wolfram language",
+    "markup": "wolfram, mathematica, nb, wl",
+    "code": "Print[\"Hello, World!\"]"
+  },
+  {
+    "name": "Wren",
+    "markup": "wren",
+    "code": "System.print(\"Hello, World!\")"
+  },
+  {
+    "name": "Xeora",
+    "markup": "xeora, xeoracube",
+    "code": "$F:PrintLine:Hello, World!$"
+  },
+  {
+    "name": "XML doc (.net)",
+    "markup": "xml-doc",
+    "code": "/// <summary>\n/// Hello World method\n/// </summary>\n/// <returns>A greeting message: Hello, World!</returns>\npublic string SayHello() {\n    return \"Hello, World!\";\n}"
+  },
+  {
+    "name": "Xojo (REALbasic)",
+    "markup": "xojo",
+    "code": "Sub Action()\n  MsgBox \"Hello, World!\"\nEnd Sub"
+  },
+  {
+    "name": "XQuery",
+    "markup": "xquery",
+    "code": "\"Hello, World!\""
+  },
+  {
+    "name": "YAML",
+    "markup": "yaml, yml",
+    "code": "greeting: Hello, World!\nlanguage: YAML\nmessage:\n  - Hello\n  - World"
+  },
+  {
+    "name": "YANG",
+    "markup": "yang",
+    "code": "module hello-world {\n  namespace \"http://example.com/hello-world\";\n  prefix \"hw\";\n  \n  leaf greeting {\n    type string;\n    default \"Hello, World!\";\n  }\n}"
+  },
+  {
+    "name": "Zig",
+    "markup": "zig",
+    "code": "const std = @import(\"std\");\n\npub fn main() void {\n    std.debug.print(\"Hello, World!\\n\", .{});\n}"
   }
+]
