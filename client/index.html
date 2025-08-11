@@ -1,176 +1,145 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./libs/prism.css" />
-    <title>Guess the Code</title>
-  </head>
-  <body>
-    <div class="ide-container">
-      <!-- Header/Title Bar -->
-      <header class="title-bar">
-        <div class="title-bar-controls">
-          <span><img width="18" src="./public/vite.svg"/></span>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./libs/prism.css" />
+  <title>Guess the Code</title>
+</head>
+
+<body>
+  <div class="ide-container">
+    <!-- Header/Title Bar -->
+    <header class="title-bar">
+      <div class="title-bar-controls">
+        <span><img width="18" src="./vite.svg" /></span>
+      </div>
+      <div class="title-bar-title">helloworld</div>
+      <div class="title-bar-menu">
+        <span>Theme</span>
+      </div>
+    </header>
+
+    <!-- Main IDE Layout -->
+    <main class="ide-main" x-data="classic" x-transition>
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <div class="sidebar-header">
+          <h3>Explorer</h3>
         </div>
-        <div class="title-bar-title">Guess the Code - helloworld.xxx</div>
-        <div class="title-bar-menu">
-          <span>File</span>
-          <span>Edit</span>
-          <span>View</span>
+        <div class="file-tree">
+          <div class="file-item">
+            <span class="file-icon">📄</span>
+            <span>README.md</span>
+          </div>
+          <div class="file-item active">
+            <span class="file-icon">📄</span>
+            <span>helloworld</span>
+          </div>
+
+          <div class="file-item">
+            <span class="file-icon">📄</span>
+            <span>tip.txt</span>
+          </div>
         </div>
-      </header>
+      </aside>
 
-      <!-- Main IDE Layout -->
-      <main class="ide-main" x-data="classic" x-transition>
-        <!-- Sidebar -->
-        <aside class="sidebar">
-          <div class="sidebar-header">
-            <h3>Explorer</h3>
+      <!-- Editor Area -->
+      <div class="editor-container">
+        <!-- Tabs -->
+        <div class="editor-tabs">
+          <div class="tab active">
+            <span class="tab-icon">📄</span>
+            <span>helloworld</span>
+            <span class="tab-close">×</span>
           </div>
-          <div class="file-tree">
-            <div class="file-item">
-              <span class="file-icon">📁</span>
-              <span>src</span>
-            </div>
-            <div class="file-item active">
-              <span class="file-icon">📄</span>
-              <span>helloworld</span>
-            </div>
-            <div class="file-item">
-              <span class="file-icon">📄</span>
-              <span>config.json</span>
-            </div>
-          </div>
-        </aside>
+        </div>
 
-        <!-- Editor Area -->
-        <div class="editor-container">
-          <!-- Tabs -->
-          <div class="editor-tabs">
-            <div class="tab active">
-              <span class="tab-icon">📄</span>
-              <span>helloworld</span>
-              <span class="tab-close">×</span>
-            </div>
-          </div>
-
-          <!-- Code Editor -->
-          <pre>
+        <!-- Code Editor -->
+        <pre>
             <code
               id="code-block"
               :class="primsClass"
               x-text="helloWorld"
             ></code>
           </pre>
-        </div>
-      </main>
+      </div>
+    </main>
 
-      <!-- Terminal -->
-      <div class="terminal-container">
-        <div class="terminal-header">
-          <div class="terminal-tabs">
-            <div class="terminal-tab active">
-              <span class="terminal-icon">⚡</span>
-              <span>Game Terminal</span>
-              <span class="tab-close">×</span>
-            </div>
-            <div class="terminal-tab">
-              <span class="terminal-icon">🔧</span>
-              <span>Debug Console</span>
-            </div>
+    <!-- Terminal -->
+    <div class="terminal-container">
+      <div class="terminal-header">
+        <div class="terminal-tabs">
+          <div class="terminal-tab active">
+            <span class="terminal-icon">⚡</span>
+            <span>Game Terminal</span>
+            <span class="tab-close">×</span>
           </div>
-          <div class="terminal-controls">
-            <button class="terminal-btn">⚙️</button>
-            <button class="terminal-btn">📥</button>
-            <button class="terminal-btn">🗑️</button>
+          <div class="terminal-tab">
+            <span class="terminal-icon">🔧</span>
+            <span>Debug Console</span>
           </div>
         </div>
-
-        <div class="terminal-content">
-          <!-- Terminal Output -->
-          <div class="terminal-output">
-            <div class="terminal-line">
-              <span class="terminal-prompt">game@terminal:~$</span>
-              <span class="terminal-text"
-                >Welcome to Guess the Code Terminal!</span
-              >
-            </div>
-            <div class="terminal-line">
-              <span class="terminal-prompt">game@terminal:~$</span>
-              <span class="terminal-text"
-                >Analyze the code above and guess the programming
-                language.</span
-              >
-            </div>
-
-            <!-- Wrong Answers History -->
-            <template x-for="language in wrongList" :key="language">
-              <div class="terminal-line error">
-                <span class="terminal-prompt">game@terminal:~$</span>
-                <span class="terminal-text"
-                  >guess "<span x-text="language"></span>"</span
-                >
-                <span class="terminal-error">❌ Wrong! Try again.</span>
-              </div>
-            </template>
-          </div>
-
-          <!-- Terminal Input -->
-          <div class="terminal-input-container">
-            <span class="terminal-prompt">game@terminal:~$</span>
-            <span class="terminal-command">guess "</span>
-            <input
-              class="terminal-input"
-              type="text"
-              placeholder="language-name"
-              x-model="search"
-              @keydown.enter="handleEnterKey()"
-              @input="filteredLanguages"
-            />
-            <span class="terminal-command">"</span>
-
-            <!-- Autocomplete Dropdown -->
-            <div
-              class="terminal-autocomplete"
-              x-show="search.length > 0 && filteredLanguages.length > 0"
-              x-transition
-            >
-              <div class="autocomplete-header">Suggestions:</div>
-              <template
-                x-for="(language, index) in filteredLanguages.slice(0, 5)"
-                :key="language"
-              >
-                <div
-                  class="autocomplete-item"
-                  :class="{ 'selected': index === selectedIndex }"
-                  x-text="language"
-                  @click="selectLanguage(language)"
-                ></div>
-              </template>
-            </div>
-          </div>
+        <div class="terminal-controls">
+          <button class="terminal-btn">⚙️</button>
+          <button class="terminal-btn">📥</button>
+          <button class="terminal-btn">🗑️</button>
         </div>
       </div>
 
-      <!-- Status Bar -->
-      <footer class="status-bar">
-        <div class="status-left">
-          <span class="status-item">🟢 Ready</span>
-          <span class="status-item">Ln 1, Col 1</span>
-        </div>
-        <div class="status-right">
-          <span class="status-item">UTF-8</span>
-          <span class="status-item">Python</span>
-          <span class="status-item">🔄</span>
-        </div>
-      </footer>
-    </div>
+      <div class="terminal-content">
+        <!-- Terminal Output -->
+        <div class="terminal-output">
+          <div class="terminal-line">
+            <span class="terminal-prompt">game@terminal:~$</span>
+            <span class="terminal-text">Welcome to Guess the Code Terminal!</span>
+          </div>
+          <div class="terminal-line">
+            <span class="terminal-prompt">game@terminal:~$</span>
+            <span class="terminal-text">Analyze the code above and guess the programming
+              language.</span>
+          </div>
 
-    <script type="module" src="./index.js"></script>
-    <script src="./libs/prism.js"></script>
-  </body>
+          <!-- Wrong Answers History -->
+          <template x-for="language in wrongList" :key="language">
+            <div class="terminal-line error">
+              <span class="terminal-prompt">game@terminal:~$</span>
+              <span class="terminal-text">guess "<span x-text="language"></span>"</span>
+              <span class="terminal-error">❌ Wrong! Try again.</span>
+            </div>
+          </template>
+        </div>
+        <!-- Terminal Input -->
+        <div class="terminal-input-container">
+          <span class="terminal-prompt">game@terminal:~$</span>
+          <span class="terminal-command">guess "</span>
+          <input class="terminal-input" type="text" placeholder="language-name" x-model="search"
+            @keydown.enter="handleEnterKey()" @input="filteredLanguages" />
+          <span class="terminal-command">"</span>
+
+          <!-- Send Button estilo terminal -->
+          <button class="terminal-send" @click="handleEnterKey()" title="Send (Enter)" aria-label="Send guess">
+            [ENTER]
+          </button>
+
+          <!-- Autocomplete -->
+          <div class="terminal-autocomplete" x-show="search.length > 0 && filteredLanguages.length > 0" x-transition>
+            <div class="autocomplete-header">Suggestions:</div>
+            <template x-for="(language, index) in filteredLanguages.slice(0, 5)" :key="language">
+              <div class="autocomplete-item" :class="{ 'selected': index === selectedIndex }" x-text="language"
+                @click="selectLanguage(language)"></div>
+            </template>
+          </div>
+        </div>
+
+
+
+        <script type="module" src="./index.js"></script>
+        <script src="./libs/prism.js"></script>
+</body>
+
 </html>

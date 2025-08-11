@@ -477,6 +477,7 @@ body {
   border-top: 1px solid #2d2d30;
   position: relative;
   font-size: 13px;
+  min-height: 36px;
 }
 
 .terminal-input {
@@ -535,7 +536,6 @@ body {
   border-bottom: none;
 }
 
-/* Scrollbar para terminal */
 .terminal-output::-webkit-scrollbar {
   width: 8px;
 }
@@ -553,11 +553,60 @@ body {
   background: #4f4f4f;
 }
 
-/* Animação para autocomplete */
 .terminal-autocomplete {
   animation: slideUp 0.2s ease-out;
 }
 
+.terminal-input-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* botão com estética de terminal */
+.terminal-send {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 6px 10px;
+  color: #4ec9b0;                 
+  background: #0b0f10;           
+  border: 1px solid #1e2426;      
+  border-radius: 2px;            
+  box-shadow:
+    inset 0 0 0 1px #0b0f10,
+    0 0 0 0 rgba(0,0,0,0); 
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 120ms ease, color 120ms ease, box-shadow 120ms ease, transform 40ms ease;
+}
+
+/* hover: “fosco” com leve glow */
+.terminal-send:hover {
+  background: #0e1315;
+  box-shadow: 0 0 8px rgba(0, 255, 156, 0.15);
+}
+
+/* active: clique “mecânico” */
+.terminal-send:active {
+  transform: translateY(1px);
+  background: #0a0e0f;
+}
+
+.terminal-send:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,255,156,0.25), inset 0 0 0 1px #4ec9b0;
+}
+
+.hc .terminal-send {
+  color: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.terminal-input {
+  height: 28px;
+}
 @keyframes slideUp {
   from {
     opacity: 0;
