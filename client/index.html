@@ -11,7 +11,7 @@
   <title>Guess the Code</title>
 </head>
 
-<body>
+<body x-data="app">
   <div class="ide-container">
     <!-- Header/Title Bar -->
     <header class="title-bar">
@@ -25,7 +25,7 @@
     </header>
 
     <!-- Main IDE Layout -->
-    <main class="ide-main" x-data="classic" x-transition>
+    <main class="ide-main"  x-transition>
       <!-- Sidebar -->
       <aside class="sidebar">
         <div class="sidebar-header">
@@ -91,7 +91,8 @@
         </div>
       </div>
 
-      <div class="terminal-content">
+      <div class="terminal-content"
+      >
         <!-- Terminal Output -->
         <div class="terminal-output">
           <div class="terminal-line">
@@ -114,28 +115,35 @@
           </template>
         </div>
         <!-- Terminal Input -->
-        <div class="terminal-input-container">
+        <div class="terminal-input-container"
+          @keydown.arrow-down.prevent="teste(1)"
+          @keydown.arrow-up.prevent="teste(-1)"
+          @keydown.tab.prevent="teste(1)"
+          @keydown.enter.prevent="selectLanguage()">
           <span class="terminal-prompt">game@terminal:~$</span>
           <span class="terminal-command">guess "</span>
           <input class="terminal-input" type="text" placeholder="language-name" x-model="search"
-            @keydown.enter="handleEnterKey()" @input="filteredLanguages" />
+          @input="filteredLanguages" />
           <span class="terminal-command">"</span>
 
           <!-- Send Button estilo terminal -->
-          <button class="terminal-send" @click="handleEnterKey()" title="Send (Enter)" aria-label="Send guess">
+          <button class="terminal-send" @click="selectLanguage(search)" title="Send (Enter)" aria-label="Send guess">
             [ENTER]
           </button>
 
           <!-- Autocomplete -->
-          <div class="terminal-autocomplete" x-show="search.length > 0 && filteredLanguages.length > 0" x-transition>
+          <div class="terminal-autocomplete" 
+            x-show="search.length > 0 && filteredLanguages.length > 0" 
+            x-transition>
             <div class="autocomplete-header">Suggestions:</div>
             <template x-for="(language, index) in filteredLanguages.slice(0, 5)" :key="language">
-              <div class="autocomplete-item" :class="{ 'selected': index === selectedIndex }" x-text="language"
+              <div class="autocomplete-item" :class="{ 'selected': index === selectedIndex }" x-text="language" 
                 @click="selectLanguage(language)"></div>
             </template>
           </div>
         </div>
-
+      </div>
+      </div>
 
 
         <script type="module" src="./index.js"></script>

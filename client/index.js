@@ -1,6 +1,6 @@
 import Alpine from "alpinejs";
 
-Alpine.data("classic", () => ({
+Alpine.data("app", () => ({
   search: "",
   selectedLanguageId: null,
   helloWorld: "",
@@ -33,7 +33,6 @@ Alpine.data("classic", () => ({
       .finally(() => (this.loading = false));
   },
   handleEnterKey() {
-    console.log("ADasd")
     if (this.search.trim()) {
       if (this.filteredLanguages.length > 0) {
         this.selectLanguage(
@@ -42,24 +41,34 @@ Alpine.data("classic", () => ({
         );
       }
     }
+    this.search = "";
   },
   get filteredLanguages() {
     return this.languageList.filter((i) =>
       i.toLowerCase().includes(this.search.toLowerCase())
     );
   },
-
-  selectLanguage(language) {
-    this.selectedLanguageId = language;
-    this.postToApi(language);
+  selectLanguage() {
+    this.selectedLanguageId = this.search;
+    this.postToApi(this.search);
     this.$nextTick(() => {
       const terminalInput = document.querySelector(".terminal-input");
       if (terminalInput) {
         terminalInput.focus();
+        this.search = "";
       }
     });
   },
-
+  teste(_value) {
+    this.selectedIndex += _value;
+    console.log(this.selectedIndex)
+    if(this.selectedIndex === -1){
+      this.selectedIndex = 0;
+    }else if(this.selectedIndex >= 4){
+      this.selectedIndex = 0;
+    }
+    
+  },
   postToApi(language) {
     console.log(language);
     fetch("http://localhost:3000/selectedLanguage", {
@@ -72,7 +81,7 @@ Alpine.data("classic", () => ({
       .then((response) => response.json())
       .then((data) => {
         if (data.pass === true) {
-          //this.$store.wonFirstChallenge.won = true;
+          this.$store.wonFirstChallenge.won = true;
         } else {
           console.log(data);
           this.languageList.filter((item) => item !== data.language);
@@ -84,11 +93,5 @@ Alpine.data("classic", () => ({
       });
   },
 })),
-  Alpine.data("logoGame", () => ({})),
-  Alpine.data("app", {
-    chalanges: [],
-    showModal: false,
-    init() {},
-  });
 
 Alpine.start();

@@ -169,6 +169,10 @@ body {
   overflow: auto;
 }
 
+pre {
+  height: 100%;
+}
+
 .line-numbers {
   background: #1e1e1e;
   color: #858585;
@@ -508,7 +512,7 @@ body {
   max-height: 150px;
   overflow-y: auto;
   z-index: 1000;
-  font-size: 12px;
+  font-size: 16px;
 }
 
 .autocomplete-header {
