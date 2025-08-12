@@ -9,14 +9,12 @@ Challenge yourself to crack the secret code in as few attempts as possible.
 - Real-time feedback on your guesses
 - Simple, responsive UI with no build step required
 
-## 📦 Tech Stack
+## 📦 Build With
 - **HTML** + **CSS**
 - **JavaScript**
+- **NodeJS**
+- **Express**
+- **Vite**
 - **[Alpine.js](https://alpinejs.dev/)**
 
-## 📥 Installation & Usage
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/fabvarisco/alpinejs-guess-the-code.git
-   cd alpinejs-guess-the-code
