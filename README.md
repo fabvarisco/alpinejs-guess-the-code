@@ -1,4 +1,4 @@
-# Guess the Code
+# Visual Hello Code
 
 A simple, interactive "guess the code" game built with [Alpine.js](https://alpinejs.dev/).  
 Challenge yourself to crack the secret code in as few attempts as possible.
