@@ -2,7 +2,6 @@ import Alpine from "alpinejs";
 
 Alpine.data("app", () => ({
   search: "",
-  selectedLanguageId: null,
   helloWorld: "",
   languageList: [],
   wrongList: [],
@@ -44,13 +43,12 @@ Alpine.data("app", () => ({
     this.search = "";
   },
   get filteredLanguages() {
-    return this.languageList.filter((i) =>
-      i.toLowerCase().includes(this.search.toLowerCase())
-    );
+    return this.languageList
+      .filter((i) => !this.wrongList.includes(i))
+      .filter((i) => i.toLowerCase().includes(this.search.toLowerCase()));
   },
-  selectLanguage() {
-    this.selectedLanguageId = this.search;
-    this.postToApi(this.search);
+  selectLanguage(_value) {
+    this.postToApi(_value);
     this.$nextTick(() => {
       const terminalInput = document.querySelector(".terminal-input");
       if (terminalInput) {
@@ -59,18 +57,15 @@ Alpine.data("app", () => ({
       }
     });
   },
-  teste(_value) {
+  handleSelectLanguageOnList(_value) {
     this.selectedIndex += _value;
-    console.log(this.selectedIndex)
-    if(this.selectedIndex === -1){
+    if (this.selectedIndex === -1) {
       this.selectedIndex = 0;
-    }else if(this.selectedIndex >= 4){
+    } else if (this.selectedIndex >= 4) {
       this.selectedIndex = 0;
     }
-    
   },
   postToApi(language) {
-    console.log(language);
     fetch("http://localhost:3000/selectedLanguage", {
       method: "POST",
       headers: {
@@ -94,4 +89,5 @@ Alpine.data("app", () => ({
   },
 })),
 
-Alpine.start();
+
+  Alpine.start();

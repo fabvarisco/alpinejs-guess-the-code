@@ -60,10 +60,12 @@
         </div>
 
         <!-- Code Editor -->
-        <pre>
+        <pre >
             <code
+            data-break-lines="50"
               id="code-block"
               :class="primsClass"
+              class="line-numbers"
               x-text="helloWorld"
             ></code>
           </pre>
@@ -106,7 +108,7 @@
           </div>
 
           <!-- Wrong Answers History -->
-          <template x-for="language in wrongList" :key="language">
+          <template x-for="language in wrongList" :key="`wrong-${language}`">
             <div class="terminal-line error">
               <span class="terminal-prompt">game@terminal:~$</span>
               <span class="terminal-text">guess "<span x-text="language"></span>"</span>
@@ -116,10 +118,10 @@
         </div>
         <!-- Terminal Input -->
         <div class="terminal-input-container"
-          @keydown.arrow-down.prevent="teste(1)"
-          @keydown.arrow-up.prevent="teste(-1)"
-          @keydown.tab.prevent="teste(1)"
-          @keydown.enter.prevent="selectLanguage()">
+          @keydown.arrow-down.prevent="handleSelectLanguageOnList(1)"
+          @keydown.arrow-up.prevent="handleSelectLanguageOnList(-1)"
+          @keydown.tab.prevent="handleSelectLanguageOnList(1)"
+          @keydown.enter.prevent="selectLanguage(filteredLanguages[selectedIndex])">
           <span class="terminal-prompt">game@terminal:~$</span>
           <span class="terminal-command">guess "</span>
           <input class="terminal-input" type="text" placeholder="language-name" x-model="search"
@@ -137,15 +139,13 @@
             x-transition>
             <div class="autocomplete-header">Suggestions:</div>
             <template x-for="(language, index) in filteredLanguages.slice(0, 5)" :key="language">
-              <div class="autocomplete-item" :class="{ 'selected': index === selectedIndex }" x-text="language" 
+              <div class="autocomplete-item" :class="{ 'selected': index === selectedIndex }" x-text="language" x-
                 @click="selectLanguage(language)"></div>
             </template>
           </div>
         </div>
       </div>
       </div>
-
-
         <script type="module" src="./index.js"></script>
         <script src="./libs/prism.js"></script>
 </body>

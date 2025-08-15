@@ -169,8 +169,8 @@ body {
   overflow: auto;
 }
 
-pre {
-  height: 100%;
+pre, .code-toolbar {
+  height: 100% !important;
 }
 
 .line-numbers {
