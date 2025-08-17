@@ -6,12 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./styles/global.css" />
+  <link rel="stylesheet" href="./styles/terminal/terminal.css" />
+  <link rel="stylesheet" href="./styles/terminal/searchBar.css" />
+  <link rel="stylesheet" href="./styles/IDE/sidebar.css" />
   <link rel="stylesheet" href="./libs/prism.css" />
-  <title>Guess the Code</title>
+  <title>Visual Hello Code - VHC</title>
 </head>
 
-<body x-data="appData">
+<body x-data="AppData">
   <div class="ide-container">
     <!-- Header/Title Bar -->
     <header class="title-bar">
@@ -19,8 +22,14 @@
         <span><img width="18" src="./vite.svg" /></span>
       </div>
       <div class="title-bar-title">helloworld</div>
-      <div class="title-bar-menu">
+      <div x-data="ThemeData" class="title-bar-menu" @click="showThemeList = true">
         <span>Theme</span>
+
+        <div x-show="showThemeList" class="theme-list">
+        <template x-for="theme in themeList" >
+          <span x-text="theme" @click="selectTheme(theme)"></span>
+        </template>
+        </div>
       </div>
     </header>
 
@@ -128,7 +137,7 @@
 
           <!-- WIN -->
            <div x-ref="wonContainer">
-          <template  x-if="$store.wonChallengeStore.won === true">
+          <template x-if="$store.wonChallangeStore.won  === true">
             <div class="terminal-line error">
               <span class="terminal-prompt">game@terminal:~$</span>
               <span class="terminal-text">guess "<span x-text="selectedLanguage"></span>"</span>
@@ -197,10 +206,8 @@
    
        
     </div>
-        <script type="module" src="./index.js"></script>
-        <script src="./libs/prism.js"></script>
-        <script src="./libs/conffeti.js"></script>
-
+    <script type="module" src="./index.js"></script>
+    <script src="./libs/prism.js"></script>
 </body>
 
 </html>

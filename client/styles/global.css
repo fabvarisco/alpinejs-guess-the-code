@@ -1,0 +1,192 @@
+:root {
+  color-scheme: light dark dracula twilight;
+
+  /* Dark */
+  --background-dark: #1e1e1e;
+  --text-dark: #d4d4d4;
+  --font-dark: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+
+  /* Light */
+  --background-light: #f5f5f5;
+  --text-light: #222;
+
+  /* Dracula */
+  --background-dracula: #282a36;
+  --text-dracula: #f8f8f2;
+
+  /* Twilight */
+  --background-twilight: #141925;
+  --text-twilight: #c3ccdc;
+
+
+
+}
+
+.theme-light    { background: var(--background-light); color: var(--text-light); font-family: var(--font-dark); }
+.theme-dark     { background: var(--background-dark);  color: var(--text-dark); }
+.theme-dracula  { background: var(--background-dracula); color: var(--text-dracula); }
+.theme-twilight { background: var(--background-twilight); color: var(--text-twilight); }
+
+/* Reset e Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Container Principal */
+.ide-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Title Bar */
+.title-bar {
+  display: flex;
+  align-items: center;
+  height: 32px;
+  background: #3c3c3c;
+  border-bottom: 1px solid #2d2d30;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+.title-bar-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.title-bar-title {
+  flex: 1;
+  text-align: center;
+  color: #cccccc;
+}
+
+.title-bar-menu {
+  display: flex;
+  gap: 20px;
+}
+
+.title-bar-menu span {
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.title-bar-menu span:hover {
+  background: #4d4d4d;
+}
+
+/* Main Layout */
+.ide-main {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+
+/* Editor Container */
+.editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #1e1e1e;
+}
+
+/* Editor Tabs */
+.editor-tabs {
+  display: flex;
+  background: #2d2d30;
+  border-bottom: 1px solid #2d2d30;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: #2d2d30;
+  border-right: 1px solid #2d2d30;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: #1e1e1e;
+  color: #ffffff;
+}
+
+.tab-close {
+  margin-left: 8px;
+  opacity: 0.6;
+}
+
+.tab-close:hover {
+  opacity: 1;
+}
+
+/* Code Editor */
+.code-editor {
+  display: flex;
+  flex: 1;
+  background: #1e1e1e;
+  overflow: auto;
+}
+
+pre, .code-toolbar, .editor-container {
+  height: 100% !important;
+}
+
+.line-numbers {
+  background: #1e1e1e;
+  color: #858585;
+  padding: 20px 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  text-align: right;
+  user-select: none;
+  min-width: 50px;
+  border-right: 1px solid #2d2d30;
+}
+
+/* Responsividade */
+@media (max-width: 640px) {
+  .ide-main {
+    flex-direction: column;
+  }
+}
+
+/* Scrollbar customizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4f4f4f;
+}
+
+.theme-list {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    background: #3c3c3c;
+    z-index: 10;
+    top: 30px;
+    right: 0px;
+}

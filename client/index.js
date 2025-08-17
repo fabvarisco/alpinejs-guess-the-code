@@ -4,24 +4,25 @@ import persist from '@alpinejs/persist'
 //Plugins
 Alpine.plugin(persist)
 
-
-
 //Directives
 
 //Stores & Binds
 Alpine.store('wonChallangeStore', {
-    won: Alpine.$persist(true).as('won_game')
+    won: Alpine.$persist(false).as('won_game')
 });
 
 Alpine.store("eastereggsStore", {
-  autoGuess: Alpine.$persist(true).as('auto_guess'),
-  flappyBird: Alpine.$persist(true).as('flappy_bird'),
-  pong: Alpine.$persist(true).as('pong'),
+  easterEggsList: {
+    autoGuess: Alpine.$persist(false).as('auto_guess'),
+    alwaysShowTip: Alpine.$persist(false).as('always_show_tip'),
+    flappyBird: Alpine.$persist(false).as('flappy_bird'),
+    pong: Alpine.$persist(false).as('pong'),
+    dinossaur: Alpine.$persist(false).as('dinossaur'),
+  }
 });
 
-
 // App
-Alpine.data("appData", () => ({
+Alpine.data("AppData", () => ({
   search: "",
   helloWorld: "",
   languageList: [],
@@ -105,7 +106,7 @@ Alpine.data("appData", () => ({
       .then((response) => response.json())
       .then((data) => {
         if (data.pass === true) {
-          this.$store.wonChallengeStore.won = true;
+          this.$store.wonChallangeStore.won = true;
           this.$ref.wonContainer.addClass = "emitter";
         } else {
           console.log(data);
@@ -120,6 +121,28 @@ Alpine.data("appData", () => ({
 })),
 
 //Componentes
+Alpine.data("ThemeData", function (){
+  return {
+    init(){
+      this.applyTheme();
+    },
+    showThemeList: false,
+    themeList: ["Dark","Light","Dracula","Twilight"],
+    selectedTheme: this.$persist("Dark").as('theme'),
+    selectTheme(_theme){
+      this.selectedTheme = _theme.toLowerCase();
+      this.applyTheme();
+      this.$nextTick(() => {
+        this.showThemeList = false;
+      })
+    },
+    applyTheme(){
+      document.body.className = "";
+      document.body.classList.add(`theme-${this.selectedTheme}`);
+    }
+  }
+})
+
 Alpine.data("TerminalData", () => ({
 
 }))
