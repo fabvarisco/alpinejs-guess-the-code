@@ -169,7 +169,7 @@ body {
   overflow: auto;
 }
 
-pre, .code-toolbar {
+pre, .code-toolbar, .editor-container {
   height: 100% !important;
 }
 
@@ -372,7 +372,6 @@ pre, .code-toolbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 35px;
   background: #1e1e1e;
   border-bottom: 1px solid #2d2d30;
   padding: 0 10px;

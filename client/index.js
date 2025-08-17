@@ -1,5 +1,9 @@
 import Alpine from "alpinejs";
 
+Alpine.store("wonChallenge", {
+  won: false
+});
+
 Alpine.data("app", () => ({
   search: "",
   helloWorld: "",
@@ -9,8 +13,11 @@ Alpine.data("app", () => ({
   winner: false,
   primsClass: "",
   selectedIndex: 0,
+  selectedFile: "helloworld",
+  selectedTerminal: "game",
+  selectedLanguage: "",
   init() {
-    fetch("http://localhost:3000/")
+    fetch('http://localhost:3000/')
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -32,7 +39,7 @@ Alpine.data("app", () => ({
       .finally(() => (this.loading = false));
   },
   handleEnterKey() {
-    if (this.search.trim()) {
+    if (this.search.trim().length > 0) {
       if (this.filteredLanguages.length > 0) {
         this.selectLanguage(
           this.filteredLanguages[this.selectedIndex] ||
@@ -48,6 +55,8 @@ Alpine.data("app", () => ({
       .filter((i) => i.toLowerCase().includes(this.search.toLowerCase()));
   },
   selectLanguage(_value) {
+    console.log(_value)
+    if (_value.trim() === "") return;
     this.postToApi(_value);
     this.$nextTick(() => {
       const terminalInput = document.querySelector(".terminal-input");
@@ -66,6 +75,7 @@ Alpine.data("app", () => ({
     }
   },
   postToApi(language) {
+    this.selectedLanguage = language;
     fetch("http://localhost:3000/selectedLanguage", {
       method: "POST",
       headers: {
@@ -76,7 +86,7 @@ Alpine.data("app", () => ({
       .then((response) => response.json())
       .then((data) => {
         if (data.pass === true) {
-          this.$store.wonFirstChallenge.won = true;
+          this.$store.wonChallenge.won = true;
         } else {
           console.log(data);
           this.languageList.filter((item) => item !== data.language);
@@ -89,5 +99,4 @@ Alpine.data("app", () => ({
   },
 })),
 
-
-  Alpine.start();
+Alpine.start();

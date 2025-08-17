@@ -31,17 +31,17 @@
         <div class="sidebar-header">
           <h3>Explorer</h3>
         </div>
+        <!-- File Tree -->
         <div class="file-tree">
-          <div class="file-item">
+          <div class="file-item" @click="selectedFile = 'readme'" :class="selectedFile === 'readme' ? 'active' : ''">
             <span class="file-icon">📄</span>
             <span>README.md</span>
           </div>
-          <div class="file-item active">
+          <div class="file-item" @click="selectedFile = 'helloworld'" :class="selectedFile === 'helloworld' ? 'active' : ''">
             <span class="file-icon">📄</span>
             <span>helloworld</span>
           </div>
-
-          <div class="file-item">
+          <div class="file-item" @click="selectedFile = 'tip'" :class="selectedFile === 'tip' ? 'active' : ''">
             <span class="file-icon">📄</span>
             <span>tip.txt</span>
           </div>
@@ -58,17 +58,30 @@
             <span class="tab-close">×</span>
           </div>
         </div>
+        
+        <!-- Editor Container -->
+        <!-- README.md -->
+        <section x-show="selectedFile === 'readme'">
+          Readme
+        </section>
 
         <!-- Code Editor -->
-        <pre >
-            <code
-            data-break-lines="50"
-              id="code-block"
-              :class="primsClass"
-              class="line-numbers"
-              x-text="helloWorld"
-            ></code>
-          </pre>
+        <section class="editor-container" x-show="selectedFile === 'helloworld'">
+          <pre>
+              <code
+              data-break-lines="50"
+                id="code-block"
+                :class="primsClass"
+                class="line-numbers"
+                x-text="helloWorld"
+              ></code>
+            </pre>
+        </section>
+
+        <!-- Tip.txt -->
+        <section x-show="selectedFile === 'tip'">
+          tip
+        </section>
       </div>
     </main>
 
@@ -76,25 +89,19 @@
     <div class="terminal-container">
       <div class="terminal-header">
         <div class="terminal-tabs">
-          <div class="terminal-tab active">
+          <div class="terminal-tab" @click="selectedTerminal = 'game'" :class="selectedTerminal === 'game' ? 'active' : ''">
             <span class="terminal-icon">⚡</span>
             <span>Game Terminal</span>
-            <span class="tab-close">×</span>
           </div>
-          <div class="terminal-tab">
+          <div class="terminal-tab" @click="selectedTerminal = 'debug'" :class="selectedTerminal === 'debug' ? 'active' : ''">
             <span class="terminal-icon">🔧</span>
             <span>Debug Console</span>
           </div>
         </div>
-        <div class="terminal-controls">
-          <button class="terminal-btn">⚙️</button>
-          <button class="terminal-btn">📥</button>
-          <button class="terminal-btn">🗑️</button>
-        </div>
       </div>
 
-      <div class="terminal-content"
-      >
+      <!-- Game Terminal -->
+      <div class="terminal-content" x-show="selectedTerminal === 'game'">
         <!-- Terminal Output -->
         <div class="terminal-output">
           <div class="terminal-line">
@@ -115,6 +122,16 @@
               <span class="terminal-error">❌ Wrong! Try again.</span>
             </div>
           </template>
+
+          <!-- WIN -->
+          <template x-if="$store.wonChallenge.won === true">
+            <div class="terminal-line error">
+              <span class="terminal-prompt">game@terminal:~$</span>
+              <span class="terminal-text">guess "<span x-text="selectedLanguage"></span>"</span>
+              <span class="terminal-error">WIN!</span>
+            </div>
+          </template>
+
         </div>
         <!-- Terminal Input -->
         <div class="terminal-input-container"
@@ -145,7 +162,36 @@
           </div>
         </div>
       </div>
+
+      <!-- Debug Terminal -->
+      <div class="terminal-content" x-show="selectedTerminal === 'debug'">
+        <!-- Terminal Output -->
+        <div class="terminal-output">
+
+        </div>
+
+        <!-- Terminal Input -->
+        <div class="terminal-input-container"
+        @keydown.arrow-down.prevent="handleSelectLanguageOnList(1)"
+        @keydown.arrow-up.prevent="handleSelectLanguageOnList(-1)"
+        @keydown.tab.prevent="handleSelectLanguageOnList(1)"
+        @keydown.enter.prevent="selectLanguage(filteredLanguages[selectedIndex])">
+        <span class="terminal-prompt">debug@terminal:~$</span>
+        <span class="terminal-command">"</span>
+        <input class="terminal-input" type="text" placeholder="" x-model="search"
+        @input="filteredLanguages" />
+        <span class="terminal-command">"</span>
+
+          <!-- Send Button estilo terminal -->
+          <button class="terminal-send" @click="selectLanguage(search)" title="Send (Enter)" aria-label="Send guess">
+            [ENTER]
+          </button>
+        </div>
       </div>
+
+   
+       
+    </div>
         <script type="module" src="./index.js"></script>
         <script src="./libs/prism.js"></script>
 </body>
