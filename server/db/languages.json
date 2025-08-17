@@ -1437,7 +1437,7 @@
   {
     "name": "Wiki markup",
     "markup": "wiki",
-    "code": "== Hello World ==\n\n'''Hello, World!''' in wiki markup.\n\n* This is a greeting\n* In wiki format"
+    "code": "== Hello World ==\n\n'''Hello, World!'''\n\n* This is a greeting\n* In wiki format"
   },
   {
     "name": "Wolfram language",

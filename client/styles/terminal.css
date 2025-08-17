@@ -1,0 +1,280 @@
+
+/* Terminal Container */
+.terminal-container {
+  height: 250px;
+  background: #0c0c0c;
+  border-top: 1px solid #2d2d30;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+/* Terminal Header */
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e1e1e;
+  border-bottom: 1px solid #2d2d30;
+  padding: 0 10px;
+}
+
+.terminal-tabs {
+  display: flex;
+  gap: 2px;
+}
+
+.terminal-tab {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: #2d2d30;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #cccccc;
+}
+
+.terminal-tab.active {
+  background: #0c0c0c;
+  color: #ffffff;
+}
+
+.terminal-tab:hover:not(.active) {
+  background: #3c3c3c;
+}
+
+.terminal-icon {
+  font-size: 10px;
+}
+
+.terminal-controls {
+  display: flex;
+  gap: 5px;
+}
+
+.terminal-btn {
+  background: none;
+  border: none;
+  color: #cccccc;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+.terminal-btn:hover {
+  background: #3c3c3c;
+}
+
+/* Terminal Content */
+.terminal-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #0c0c0c;
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.terminal-output {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.terminal-line {
+  margin-bottom: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.terminal-line.error .terminal-error {
+  color: #f48771;
+  font-weight: bold;
+}
+
+.terminal-prompt {
+  color: #4ec9b0;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.terminal-text {
+  color: #d4d4d4;
+}
+
+.terminal-command {
+  color: #569cd6;
+}
+
+/* Terminal Input */
+.terminal-input-container {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #0c0c0c;
+  border-top: 1px solid #2d2d30;
+  position: relative;
+  font-size: 13px;
+  min-height: 36px;
+}
+
+.terminal-input {
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: inherit;
+  outline: none;
+  flex: 1;
+  margin: 0 2px;
+}
+
+.terminal-input::placeholder {
+  color: #666666;
+  font-style: italic;
+}
+
+/* Terminal Autocomplete */
+.terminal-autocomplete {
+  position: absolute;
+  bottom: 100%;
+  left: 100px;
+  right: 20px;
+  background: #1e1e1e;
+  border: 1px solid #464647;
+  border-radius: 4px;
+  max-height: 150px;
+  overflow-y: auto;
+  z-index: 1000;
+  font-size: 16px;
+}
+
+.autocomplete-header {
+  padding: 6px 10px;
+  background: #2d2d30;
+  color: #cccccc;
+  font-size: 11px;
+  border-bottom: 1px solid #464647;
+}
+
+.autocomplete-item {
+  padding: 6px 10px;
+  cursor: pointer;
+  color: #d4d4d4;
+  border-bottom: 1px solid #2d2d30;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item.selected {
+  background: #094771;
+  color: #ffffff;
+}
+
+.autocomplete-item:last-child {
+  border-bottom: none;
+}
+
+.terminal-output::-webkit-scrollbar {
+  width: 8px;
+}
+
+.terminal-output::-webkit-scrollbar-track {
+  background: #0c0c0c;
+}
+
+.terminal-output::-webkit-scrollbar-thumb {
+  background: #424242;
+  border-radius: 4px;
+}
+
+.terminal-output::-webkit-scrollbar-thumb:hover {
+  background: #4f4f4f;
+}
+
+.terminal-autocomplete {
+  animation: slideUp 0.2s ease-out;
+}
+
+.terminal-input-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* botão com estética de terminal */
+.terminal-send {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1;
+  padding: 6px 10px;
+  color: #4ec9b0;                 
+  background: #0b0f10;           
+  border: 1px solid #1e2426;      
+  border-radius: 2px;            
+  box-shadow:
+    inset 0 0 0 1px #0b0f10,
+    0 0 0 0 rgba(0,0,0,0); 
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 120ms ease, color 120ms ease, box-shadow 120ms ease, transform 40ms ease;
+}
+
+/* hover: “fosco” com leve glow */
+.terminal-send:hover {
+  background: #0e1315;
+  box-shadow: 0 0 8px rgba(0, 255, 156, 0.15);
+}
+
+/* active: clique “mecânico” */
+.terminal-send:active {
+  transform: translateY(1px);
+  background: #0a0e0f;
+}
+
+.terminal-send:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0,255,156,0.25), inset 0 0 0 1px #4ec9b0;
+}
+
+.hc .terminal-send {
+  color: #e2e8f0;
+  border-color: #94a3b8;
+}
+
+.terminal-input {
+  height: 28px;
+}
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade para terminal */
+@media (max-width: 768px) {
+  .terminal-container {
+    height: 200px;
+  }
+  
+  .terminal-header {
+    height: 30px;
+  }
+  
+  .terminal-tab {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
+}

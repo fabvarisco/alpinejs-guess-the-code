@@ -11,7 +11,7 @@
   <title>Guess the Code</title>
 </head>
 
-<body x-data="app">
+<body x-data="appData">
   <div class="ide-container">
     <!-- Header/Title Bar -->
     <header class="title-bar">
@@ -66,17 +66,20 @@
         </section>
 
         <!-- Code Editor -->
-        <section class="editor-container" x-show="selectedFile === 'helloworld'">
+        <section 
+          class="editor-container" 
+          x-show="selectedFile === 'helloworld'">
           <pre>
-              <code
+            <code
               data-break-lines="50"
-                id="code-block"
-                :class="primsClass"
-                class="line-numbers"
-                x-text="helloWorld"
-              ></code>
-            </pre>
+              id="code-block"
+              :class="primsClass"
+              class="line-numbers"
+              x-text="helloWorld"
+            ></code>
+          </pre>
         </section>
+
 
         <!-- Tip.txt -->
         <section x-show="selectedFile === 'tip'">
@@ -101,9 +104,9 @@
       </div>
 
       <!-- Game Terminal -->
-      <div class="terminal-content" x-show="selectedTerminal === 'game'">
+      <div x-data="TerminalData" class="terminal-content" x-show="selectedTerminal === 'game'" >
         <!-- Terminal Output -->
-        <div class="terminal-output">
+        <div class="terminal-output" x-ref="gameTerminalContainer">
           <div class="terminal-line">
             <span class="terminal-prompt">game@terminal:~$</span>
             <span class="terminal-text">Welcome to Guess the Code Terminal!</span>
@@ -124,13 +127,15 @@
           </template>
 
           <!-- WIN -->
-          <template x-if="$store.wonChallenge.won === true">
+           <div x-ref="wonContainer">
+          <template  x-if="$store.wonChallengeStore.won === true">
             <div class="terminal-line error">
               <span class="terminal-prompt">game@terminal:~$</span>
               <span class="terminal-text">guess "<span x-text="selectedLanguage"></span>"</span>
               <span class="terminal-error">WIN!</span>
             </div>
           </template>
+          </div>
 
         </div>
         <!-- Terminal Input -->
@@ -194,6 +199,8 @@
     </div>
         <script type="module" src="./index.js"></script>
         <script src="./libs/prism.js"></script>
+        <script src="./libs/conffeti.js"></script>
+
 </body>
 
 </html>

@@ -12,8 +12,10 @@
     "vite": "^5.0.8"
   },
   "dependencies": {
+    "@alpinejs/persist": "^3.14.9",
     "alpinejs": "^3.13.7",
     "alpinejs-i18n": "^2.4.2",
+    "canvas-confetti": "^1.9.3",
     "prismjs": "^1.30.0"
   }
 }

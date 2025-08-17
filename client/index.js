@@ -1,10 +1,27 @@
 import Alpine from "alpinejs";
+import persist from '@alpinejs/persist'
 
-Alpine.store("wonChallenge", {
-  won: false
+//Plugins
+Alpine.plugin(persist)
+
+
+
+//Directives
+
+//Stores & Binds
+Alpine.store('wonChallangeStore', {
+    won: Alpine.$persist(true).as('won_game')
 });
 
-Alpine.data("app", () => ({
+Alpine.store("eastereggsStore", {
+  autoGuess: Alpine.$persist(true).as('auto_guess'),
+  flappyBird: Alpine.$persist(true).as('flappy_bird'),
+  pong: Alpine.$persist(true).as('pong'),
+});
+
+
+// App
+Alpine.data("appData", () => ({
   search: "",
   helloWorld: "",
   languageList: [],
@@ -58,6 +75,8 @@ Alpine.data("app", () => ({
     console.log(_value)
     if (_value.trim() === "") return;
     this.postToApi(_value);
+    this.$refs.gameTerminalContainer.scrollTop = this.$refs.gameTerminalContainer.scrollHeight;
+
     this.$nextTick(() => {
       const terminalInput = document.querySelector(".terminal-input");
       if (terminalInput) {
@@ -86,7 +105,8 @@ Alpine.data("app", () => ({
       .then((response) => response.json())
       .then((data) => {
         if (data.pass === true) {
-          this.$store.wonChallenge.won = true;
+          this.$store.wonChallengeStore.won = true;
+          this.$ref.wonContainer.addClass = "emitter";
         } else {
           console.log(data);
           this.languageList.filter((item) => item !== data.language);
@@ -98,5 +118,10 @@ Alpine.data("app", () => ({
       });
   },
 })),
+
+//Componentes
+Alpine.data("TerminalData", () => ({
+
+}))
 
 Alpine.start();
