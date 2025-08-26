@@ -35,7 +35,7 @@ Alpine.data("AppData", () => ({
   selectedTerminal: "game",
   selectedLanguage: "",
   init() {
-    fetch('http://localhost:3000/')
+    fetch(import.meta.env.VITE_BASE_URL)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
