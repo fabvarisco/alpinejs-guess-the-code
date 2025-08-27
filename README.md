@@ -1,3 +1,5 @@
+# WIP
+-------
 # Visual Hello Code
 
 A simple, interactive "guess the code" game built with [Alpine.js](https://alpinejs.dev/).  
